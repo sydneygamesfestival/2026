@@ -9,7 +9,7 @@ permalink: /faqs/
   <div class="container hero-copy">
     <p class="eyebrow">FAQ</p>
     <h1>Frequently asked questions</h1>
-    <p class="lede">Answers to common questions about Sydney Games Fest.</p>
+    <p class="lede">Answers to common questions about Sydney Games Festival.</p>
   </div>
 </section>
 

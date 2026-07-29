@@ -1,4 +1,4 @@
-# Sydney Games Fest 2026
+# Sydney Games Festival 2026
 
 A small Jekyll site intended for GitHub Pages.
 
