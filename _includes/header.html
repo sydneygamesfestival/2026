@@ -4,10 +4,16 @@
       <span>Sydney Games</span>
       <span>Fest 2026</span>
     </a>
-    <nav aria-label="Primary navigation">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/about/' | relative_url }}">About <span>01</span></a>
-      <a href="{{ '/program/' | relative_url }}">Program <span>02</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="visually-hidden">Menu</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav id="primary-navigation" aria-label="Primary navigation">
+      <a href="{{ '/' | relative_url }}"><span class="nav-label">Home</span> <span class="nav-number">01</span></a>
+      <a href="{{ '/about/' | relative_url }}"><span class="nav-label">About</span> <span class="nav-number">02</span></a>
+      <a href="{{ '/program/' | relative_url }}"><span class="nav-label">Program</span> <span class="nav-number">03</span></a>
     </nav>
   </div>
 </header>
