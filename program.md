@@ -34,5 +34,10 @@ permalink: /program/
 </section>
 
 <section class="colour-band orange-band" aria-label="Festival values">
-  <div class="marquee">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone ·</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-group">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
+      <span class="marquee-group" aria-hidden="true">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
+    </div>
+  </div>
 </section>
