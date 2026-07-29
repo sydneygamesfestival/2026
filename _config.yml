@@ -1,7 +1,7 @@
 title: Sydney Games Fest 2026
 description: A community-run games festival for Sydney.
-url: ""
-baseurl: ""
+url: "https://sydneygamesfestival.github.io"
+baseurl: "/2026"
 markdown: kramdown
 
 collections:
