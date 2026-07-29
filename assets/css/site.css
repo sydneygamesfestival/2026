@@ -1,0 +1,98 @@
+:root {
+  --ink: #202020;
+  --blue: #0042db;
+  --coral: #fc5571;
+  --orange: #fd912d;
+  --paper: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "BBH Hegarty", sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+a { color: inherit; }
+
+.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+.site-header { background: var(--paper); border-bottom: 2px solid var(--ink); }
+
+.header-content { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 90px; }
+
+.site-name, .footer-logo, h1, h2, h3 { font-family: "Special Gothic Expanded One", sans-serif; text-transform: uppercase; }
+
+.site-name { color: var(--blue); font-size: 18px; line-height: 0.95; text-decoration: none; }
+.site-name span { display: block; }
+
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+
+nav a {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover, nav a:focus-visible { background: var(--ink); color: var(--paper); }
+nav span { font-size: 0.75em; margin-left: 6px; }
+
+.hero { padding: 48px 0 74px; text-align: center; }
+.hero-image { display: block; width: min(100%, 960px); margin: 0 auto; }
+.hero-copy { width: min(670px, 100%); margin: 26px auto 0; }
+.eyebrow { margin: 0 0 8px; font-family: "Space Grotesk", sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
+.lede { font-size: clamp(1.1rem, 2.25vw, 1.5rem); }
+
+.colour-band { overflow: hidden; padding: 44px 0; color: white; }
+.blue-band { background: var(--blue); }
+.orange-band { background: var(--orange); }
+.coral-band { background: var(--coral); }
+
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; text-align: center; }
+.fact { border: 2px solid currentColor; border-radius: 20px; padding: 18px; }
+.fact strong { display: block; font-family: "Special Gothic Expanded One", sans-serif; font-size: 1.25rem; text-transform: uppercase; }
+
+.content-section { padding: 76px 0; }
+.content-section h2 { margin-top: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1; }
+.text-centre { max-width: 780px; margin-left: auto; margin-right: auto; text-align: center; }
+
+.marquee { display: flex; width: max-content; gap: 2.5rem; font-family: "Special Gothic Expanded One", sans-serif; font-size: clamp(1.5rem, 3vw, 2.6rem); text-transform: uppercase; white-space: nowrap; }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { border: 3px solid currentColor; border-radius: 24px; padding: 24px; }
+.card h3 { margin: 0 0 12px; font-size: 1.35rem; }
+
+.signup { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
+.button { display: inline-block; border: 2px solid currentColor; border-radius: 999px; padding: 11px 20px; font-weight: 700; text-decoration: none; }
+.button:hover, .button:focus-visible { background: currentColor; color: var(--paper); }
+
+.community-list { columns: 2; gap: 40px; padding: 0; list-style: none; }
+.community-list li { padding: 12px 0; border-bottom: 2px solid currentColor; }
+
+details { border-top: 2px solid currentColor; padding: 16px 0; }
+details:last-child { border-bottom: 2px solid currentColor; }
+summary { cursor: pointer; font-weight: 700; }
+
+.site-footer { padding: 52px 0; background: var(--blue); color: white; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr) 2fr; gap: 32px; }
+.site-footer h2 { margin: 0 0 12px; font-size: 1rem; }
+.site-footer a { display: block; margin: 6px 0; text-decoration-thickness: 1px; }
+.footer-logo { font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 0.95; }
+.acknowledgement p:last-child { font-size: 0.9rem; }
+
+@media (max-width: 720px) {
+  .header-content { align-items: flex-start; flex-direction: column; padding: 18px 0; }
+  .facts, .cards, .footer-grid { grid-template-columns: 1fr; }
+  .community-list { columns: 1; }
+  .content-section { padding: 52px 0; }
+}

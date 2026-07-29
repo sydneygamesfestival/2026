@@ -1,0 +1,11 @@
+title: Sydney Games Fest 2026
+description: A community-run games festival for Sydney.
+url: ""
+baseurl: ""
+markdown: kramdown
+
+collections:
+  faqs:
+    output: false
+
+# GitHub Pages does not need any custom plugins for this site.
