@@ -168,7 +168,7 @@ summary { cursor: pointer; font-weight: 700; }
   text-decoration: none;
   text-transform: uppercase;
 }
-.footer-logo { font-size: clamp(1.8rem, 3.3vw, 2.8rem); letter-spacing: 0.04em; line-height: 0.85; }
+.footer-logo { margin: 0; font-size: clamp(1.8rem, 3.3vw, 2.8rem); letter-spacing: 0.04em; line-height: 0.85; }
 .footer-logo span { display: block; }
 .acknowledgement p:last-child {
   font-family: var(--font-body);
