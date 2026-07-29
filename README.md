@@ -9,10 +9,12 @@ A small Jekyll site intended for GitHub Pages.
 3. Start the site: `bundle exec jekyll serve`
 4. Open the address printed by Jekyll (normally `http://127.0.0.1:4000`).
 
-The site deliberately has no JavaScript or countdown timer at this stage. Page
-artwork and icons in `assets/` are copied unchanged from the supplied export.
+The site deliberately has no countdown timer at this stage. Page artwork and
+icons in `assets/` are copied unchanged from the supplied export.
 
 ## FAQs
 
 Each FAQ is a Markdown file in `_faqs/`. To add one, create a new file with a
-`title` and numeric `order` in its front matter, then write the answer below it.
+`title`, numeric `order` and `featured` flag in its front matter, then write the
+answer below it. Set `featured: true` to include it on the About page; every FAQ
+appears on the full FAQ index.

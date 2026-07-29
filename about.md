@@ -65,12 +65,16 @@ permalink: /about/
   <div class="container text-centre">
     <p class="eyebrow">FAQ</p>
     <h2>What to know before Sydney Games Fest</h2>
-    {% assign faqs = site.faqs | sort: "order" %}
-    {% for faq in faqs %}
-      <details>
-        <summary>{{ faq.title }}</summary>
-        {{ faq.content | markdownify }}
-      </details>
+    <div class="faq-links">
+    {% assign featured_faqs = site.faqs | where: "featured", true | sort: "order" %}
+    {% for faq in featured_faqs %}
+      {% capture faq_url %}/faqs/#{{ faq.slug }}{% endcapture %}
+      <a class="faq-list-link" href="{{ faq_url | relative_url }}">
+        <span>{{ faq.title }}</span>
+        <span class="faq-arrow" aria-hidden="true">→</span>
+      </a>
     {% endfor %}
+    </div>
+    <p class="more-faqs"><a class="button" href="{{ '/faqs/' | relative_url }}">More FAQs</a></p>
   </div>
 </section>
