@@ -42,11 +42,12 @@ slug: home
   </div>
 </section>
 
-<section id="tickets" class="content-section">
+<section class="content-section">
   <div class="container text-centre">
-    <p class="eyebrow">Tickets</p>
-    <h2>Tickets for events available soon</h2>
-    <p>Event details and tickets will be published as the festival program is announced.</p>
-    <a class="button" href="{{ '/program/' | relative_url }}">See the program</a>
+    <p class="eyebrow">Coming soon</p>
+    <h2>The 2026 festival schedule is being assembled</h2>
+    <p>Individual communities will announce their own events, venues and entry details. Check back soon, or join the mailing list for updates.</p>
+    <a class="button" href="{{ '/program/' | relative_url }}">See the current program</a>
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Get program updates</a> 
   </div>
 </section>
