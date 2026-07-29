@@ -19,7 +19,7 @@ permalink: /program/
 <section class="colour-band orange-band">
   <div class="container facts">
     <div class="fact"><strong>Where?</strong>Sydney, NSW</div>
-    <div class="fact"><strong>When?</strong>Begins 13 Oct 2026, 5:00 pm</div>
+    <div class="fact"><strong>When?</strong>Begins 12 Oct 2026, 5:00 pm</div>
     <div class="fact"><strong>Until</strong>18 Oct 2026</div>
   </div>
 </section>

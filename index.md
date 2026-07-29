@@ -15,7 +15,7 @@ slug: home
 
 <section class="colour-band blue-band">
   <div class="container facts">
-    <div class="fact"><strong>13–18 Oct</strong>2026</div>
+    <div class="fact"><strong>12–18 Oct</strong>2026</div>
     <div class="fact"><strong>Sydney</strong>NSW</div>
     <div class="fact"><strong>Games</strong>For everyone</div>
   </div>

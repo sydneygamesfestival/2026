@@ -18,7 +18,7 @@ permalink: /about/
 
 <section class="colour-band coral-band">
   <div class="container facts">
-    <div class="fact"><strong>Date</strong>13 Oct → 18 Oct</div>
+    <div class="fact"><strong>Date</strong>12 Oct → 18 Oct</div>
     <div class="fact"><strong>City</strong>Sydney, NSW</div>
     <div class="fact"><strong>Expect</strong>Games, tabletop, community, learning</div>
   </div>
