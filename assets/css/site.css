@@ -219,6 +219,39 @@ summary { cursor: pointer; font-weight: 700; }
   text-transform: none;
 }
 
+.page-festival-credits .hero { padding-bottom: 52px; }
+.page-festival-credits main > h2 {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 18px 14px;
+  color: white;
+  background: var(--coral);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.05;
+}
+.page-festival-credits main > h2:nth-of-type(even) {
+  color: var(--ink);
+  background: var(--orange);
+}
+.page-festival-credits main > table {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 52px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.page-festival-credits main > table th,
+.page-festival-credits main > table td {
+  padding: 18px;
+  border: 2px solid var(--ink);
+  vertical-align: top;
+}
+.page-festival-credits main > table th,
+.page-festival-credits main > table tbody td:first-child {
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+}
+.page-festival-credits main > table tbody td:first-child { width: 28%; }
+
 @media (min-width: 901px) {
   body { padding-right: var(--desktop-navigation-width); }
 
