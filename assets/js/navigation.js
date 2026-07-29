@@ -7,3 +7,17 @@ if (menuToggle && siteHeader) {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
+
+function openLinkedFaq() {
+  if (!window.location.hash) return;
+
+  const faqId = decodeURIComponent(window.location.hash.slice(1));
+  const faq = document.getElementById(faqId);
+
+  if (faq instanceof HTMLDetailsElement && faq.classList.contains("faq-entry")) {
+    faq.open = true;
+  }
+}
+
+openLinkedFaq();
+window.addEventListener("hashchange", openLinkedFaq);

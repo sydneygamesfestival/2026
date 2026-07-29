@@ -100,7 +100,11 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 
 .signup { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
 .button { display: inline-block; border: 2px solid currentColor; border-radius: 999px; padding: 11px 20px; font-weight: 700; text-decoration: none; }
-.button:hover, .button:focus-visible { background: currentColor; color: var(--paper); }
+.button:hover, .button:focus-visible {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
 
 .community-list { columns: 2; gap: 40px; padding: 0; list-style: none; }
 .community-list li { padding: 12px 0; border-bottom: 2px solid currentColor; }
@@ -164,7 +168,8 @@ summary { cursor: pointer; font-weight: 700; }
   text-decoration: none;
   text-transform: uppercase;
 }
-.footer-logo { font-size: clamp(1.8rem, 3.3vw, 2.8rem); letter-spacing: -0.04em; line-height: 0.95; }
+.footer-logo { font-size: clamp(1.8rem, 3.3vw, 2.8rem); letter-spacing: 0.04em; line-height: 0.85; }
+.footer-logo span { display: block; }
 .acknowledgement p:last-child {
   font-family: var(--font-body);
   font-size: 0.9rem;
