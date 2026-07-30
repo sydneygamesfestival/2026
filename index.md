@@ -23,9 +23,9 @@ slug: home
 
 <section class="content-section">
   <div class="container text-centre">
-    <p class="eyebrow">About Fest</p>
+    <p class="eyebrow">About Festival</p>
     <h1>A week of games, creators and communities</h1>
-    <p class="lede">Sydney Games Fest brings people together across Sydney to celebrate games, game making and the communities around them.</p>
+    <p class="lede">Sydney Games Festival brings people together across Sydney to celebrate games, game making and the communities around them.</p>
     <div class="signup">
       <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Sign up for news</a>
       <a class="button" href="{{ '/about/' | relative_url }}">About the festival</a>
