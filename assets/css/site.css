@@ -69,7 +69,6 @@ h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-.primary-nav a:hover, .primary-nav a:focus-visible { background: var(--ink); color: var(--paper); }
 .nav-number { font-size: 0.75em; margin-left: 6px; }
 
 .hero { padding: 48px 0 74px; text-align: center; }
@@ -406,9 +405,6 @@ summary { cursor: pointer; font-weight: 700; }
   .primary-nav a:nth-child(2) { background: var(--coral); }
   .primary-nav a:nth-child(3) { background: var(--orange); }
 
-  .primary-nav a:hover,
-  .primary-nav a:focus-visible { background: var(--ink); }
-
   .nav-number {
     position: absolute;
     bottom: 32px;
@@ -525,8 +521,11 @@ summary { cursor: pointer; font-weight: 700; }
   }
 }
 
+/* Interactive state */
+.primary-nav a:hover,
+.primary-nav a:focus-visible { background: var(--ink); color: var(--paper); }
+
 /* Current-page indicator */
-.primary-nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 .primary-nav a[aria-current="page"] .nav-number {
   color: var(--paper);       /* current page: solid number, others outlined */
   -webkit-text-stroke: 0;
