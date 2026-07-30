@@ -64,7 +64,7 @@ permalink: /about/
 <section class="colour-band coral-band">
   <div class="container text-centre">
     <p class="eyebrow">FAQ</p>
-    <h2>What to know before Sydney Games Fest</h2>
+    <h2>What to know before Sydney Games Festival</h2>
     <div class="faq-links">
     {% assign featured_faqs = site.faqs | where: "featured", true | sort: "order" %}
     {% for faq in featured_faqs %}
