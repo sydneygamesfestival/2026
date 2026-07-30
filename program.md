@@ -3,18 +3,14 @@ layout: default
 title: Program
 slug: program
 permalink: /program/
+description: Schedule and event times to be revealed soon.
+hero_theme: orange
+hero_eyebrow: Program
+hero_title: Find out what's on and when
+social_image: /assets/images/program-hero.png
 ---
 
-<section class="hero">
-  <div class="container">
-    <img class="hero-image" src="{{ '/assets/images/program-hero.png' | relative_url }}" alt="Sydney Games Festival program page artwork">
-    <div class="hero-copy">
-      <p class="eyebrow">Program</p>
-      <h1>Find out what's on and when</h1>
-      <p class="lede">Schedule and event times to be revealed soon.</p>
-    </div>
-  </div>
-</section>
+{% include hero.html %}
 
 <section class="colour-band orange-band">
   <div class="container facts">

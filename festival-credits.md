@@ -26,3 +26,14 @@ permalink: /festival-credits/
 | Work | Credits |
 | ---: | --- |
 | Partnerships | Ryan Cross |
+
+## Volunteers
+<section>
+  <div class="container">
+    <b>Full list of people contributing to the festival in some way</b><br/><br/>
+
+Ryan Cross, Ryan Penning, Liezl, Sandra, etc
+
+    <br/><br/>
+  </div>
+</section>

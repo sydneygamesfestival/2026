@@ -3,18 +3,14 @@ layout: default
 title: About
 slug: about
 permalink: /about/
+description: A festival organised by a committee of Sydney's games communities to host a city-wide celebration across industry, digital and tabletop games.
+hero_theme: coral
+hero_eyebrow: About
+hero_title: Sydney's festival of games
+social_image: /assets/images/about-hero.png
 ---
 
-<section class="hero">
-  <div class="container">
-    <img class="hero-image" src="{{ '/assets/images/about-hero.png' | relative_url }}" alt="Sydney Games Festival about page artwork">
-    <div class="hero-copy">
-      <p class="eyebrow">About</p>
-      <h1>Sydney's festival of games</h1>
-      <p class="lede">A festival organised by a committee of Sydney's games communities to host a city-wide celebration across industry, digital and tabletop games.</p>
-    </div>
-  </div>
-</section>
+{% include hero.html %}
 
 <section class="colour-band coral-band">
   <div class="container facts">

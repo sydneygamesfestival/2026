@@ -1,0 +1,51 @@
+{% if page.hero_logo %}
+  {% assign hero_variant = 'hero-image' %}
+{% else %}
+  {% assign hero_variant = 'hero-text' %}
+{% endif %}
+
+{% case page.hero_theme %}
+  {% when "coral" %}
+    {% assign icon_controller = '/assets/icons/Controller Icon (Salmon).svg' %}
+    {% assign icon_arrow = '/assets/icons/Arrow Icon (Salmon).svg' %}
+    {% assign icon_fireworks = '/assets/icons/Fireworks Icon (Salmon).svg' %}
+    {% assign icon_cross = '/assets/icons/Cross Icon (Salmon).svg' %}
+    {% assign icon_player = '/assets/icons/Player Icon (Salmon).svg' %}
+    {% assign icon_point = '/assets/icons/Point Icon (Salmon).svg' %}
+  {% when "orange" %}
+    {% assign icon_controller = '/assets/icons/Controller Icon Orange.svg' %}
+    {% assign icon_arrow = '/assets/icons/Arrow Icon Orange.svg' %}
+    {% assign icon_fireworks = '/assets/icons/Fireowrk Icon Orange.svg' %}
+    {% assign icon_cross = '/assets/icons/Cross Icon Orange.svg' %}
+    {% assign icon_player = '/assets/icons/Player Icon Orange.svg' %}
+    {% assign icon_point = '/assets/icons/Point Icon Orange.svg' %}
+  {% else %}
+    {% assign icon_controller = '/assets/icons/Blue Controller icon.svg' %}
+    {% assign icon_arrow = '/assets/icons/Blue Arrow Icon.svg' %}
+    {% assign icon_fireworks = '/assets/icons/Blue Fireworks Icon.svg' %}
+    {% assign icon_cross = '/assets/icons/Blue Cross Icon.svg' %}
+    {% assign icon_player = '/assets/icons/Blue Player Icon.svg' %}
+    {% assign icon_point = '/assets/icons/Blue Point icon.svg' %}
+{% endcase %}
+
+<section class="hero {{ hero_variant }} hero-theme-{{ page.hero_theme | default: 'blue' }}"
+  data-hero-icons="{{ icon_controller | relative_url }}|{{ icon_arrow | relative_url }}|{{ icon_fireworks | relative_url }}|{{ icon_cross | relative_url }}|{{ icon_player | relative_url }}|{{ icon_point | relative_url }}">
+  <div class="container hero-inner">
+    <img class="hero-icon hero-icon-one" data-hero-icon data-icon-index="0" src="{{ icon_controller | relative_url }}" alt="" aria-hidden="true">
+    <img class="hero-icon hero-icon-two" data-hero-icon data-icon-index="1" src="{{ icon_arrow | relative_url }}" alt="" aria-hidden="true">
+    <img class="hero-icon hero-icon-three" data-hero-icon data-icon-index="2" src="{{ icon_fireworks | relative_url }}" alt="" aria-hidden="true">
+    <img class="hero-icon hero-icon-four" data-hero-icon data-icon-index="3" src="{{ icon_cross | relative_url }}" alt="" aria-hidden="true">
+    <img class="hero-icon hero-icon-five" data-hero-icon data-icon-index="4" src="{{ icon_player | relative_url }}" alt="" aria-hidden="true">
+    <img class="hero-icon hero-icon-six" data-hero-icon data-icon-index="5" src="{{ icon_point | relative_url }}" alt="" aria-hidden="true">
+
+    <div class="hero-copy">
+      {% if page.hero_eyebrow %}<p class="eyebrow hero-eyebrow">{{ page.hero_eyebrow }}</p>{% endif %}
+      {% if page.hero_logo %}
+        <h1><img class="hero-logo" src="{{ page.hero_logo | relative_url }}" alt="{{ page.hero_logo_alt | default: page.hero_title }}"></h1>
+      {% else %}
+        <h1 class="hero-title">{{ page.hero_title | default: page.title }}</h1>
+      {% endif %}
+      <p class="lede hero-lede">{{ page.description }}</p>
+    </div>
+  </div>
+</section>

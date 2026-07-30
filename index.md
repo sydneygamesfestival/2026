@@ -2,16 +2,15 @@
 layout: default
 title: Sydney's festival of games
 slug: home
+description: A week-long festival of games events in Sydney, organised by community-run game-making groups for video games, tabletop and more.
+hero_theme: blue
+hero_title: Sydney Games Festival
+hero_logo: /assets/images/sgf-logo-lockup.png
+hero_logo_alt: Sydney Games Festival
+social_image: /assets/images/home-hero.jpg
 ---
 
-<section class="hero">
-  <div class="container">
-    <img class="hero-image" src="{{ '/assets/images/home-hero.jpg' | relative_url }}" alt="Sydney Games Festival logo and playful blue game-themed marks">
-    <div class="hero-copy">
-      <p class="lede">A week-long festival of games events in Sydney, organised by community-run game-making groups for video games, tabletop and more.</p>
-    </div>
-  </div>
-</section>
+{% include hero.html %}
 
 <section class="colour-band blue-band">
   <div class="container facts">
