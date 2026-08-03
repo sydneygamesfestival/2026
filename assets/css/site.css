@@ -875,6 +875,7 @@ summary { cursor: pointer; font-weight: 700; }
   .hero-inner { min-height: 510px; }
   .hero-inner .hero-copy { width: 84%; }
   .hero-title { font-size: clamp(2.9rem, 15vw, 5rem); }
+  .page-about .hero-title { font-size: clamp(2.5rem, 12.5vw, 3.1rem); }
   .hero-logo { width: min(280px, 66%); }
   .hero-lede { font-size: 1rem; }
   .hero-icon { width: clamp(30px, 8vw, 40px); }
