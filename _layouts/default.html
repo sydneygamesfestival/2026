@@ -27,5 +27,8 @@
     {% include footer.html %}
     <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/hero-icons.js' | relative_url }}"></script>
+    {% if page.program_schedule %}
+    <script src="{{ '/assets/js/program-schedule.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>
