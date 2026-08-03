@@ -111,6 +111,7 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   letter-spacing: 0;
 }
 .hero-title {
+  font-family: var(--font-heading);
   font-size: clamp(3.4rem, 8vw, 7.6rem);
   line-height: 0.9;
   letter-spacing: 0; 
