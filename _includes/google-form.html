@@ -1,0 +1,16 @@
+<section class="form-section">
+  <div class="container form-container">
+    <iframe
+      class="google-form"
+      src="{{ include.url }}?embedded=true"
+      title="{{ include.title }}"
+      loading="eager"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+    >Loading…</iframe>
+    <p class="form-fallback">
+      If the form does not load, <a href="{{ include.url }}">open it in a new page</a>.
+    </p>
+  </div>
+</section>

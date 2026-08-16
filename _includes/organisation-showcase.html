@@ -1,0 +1,111 @@
+{% assign organisation_data = site.data.organisation_groups %}
+{% assign organisations = site.organisations | sort: "order" %}
+
+<section class="content-section organisation-showcase" id="groups">
+  <div class="container">
+    <header class="organisation-showcase-intro text-centre">
+      <p class="eyebrow">{{ organisation_data.intro.eyebrow }}</p>
+      <h2>{{ organisation_data.intro.title }}</h2>
+      <p>{{ organisation_data.intro.description }}</p>
+    </header>
+
+    {% for group in organisation_data.groups %}
+    <section class="organisation-tier organisation-tier--{{ group.id }} organisation-tier--{{ group.prominence }}">
+      <header class="organisation-tier-heading">
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.description }}</p>
+      </header>
+
+      <div class="organisation-grid">
+        {% for organisation in organisations %}
+          {% if organisation.groups contains group.id %}
+          {% capture modal_id %}organisation-{{ group.id }}-{{ organisation.slug }}{% endcapture %}
+          <article class="organisation-card" data-organisation-card>
+            <button
+              class="organisation-card-trigger"
+              type="button"
+              aria-label="Learn about {{ organisation.title }}"
+              aria-expanded="false"
+              aria-controls="{{ modal_id }}"
+            >
+              <span class="organisation-logo-frame">
+                <img src="{{ organisation.logo | relative_url }}" alt="" loading="lazy">
+              </span>
+            </button>
+
+            <aside
+              class="organisation-modal"
+              id="{{ modal_id }}"
+              role="dialog"
+              aria-label="About {{ organisation.title }}"
+              aria-hidden="true"
+            >
+              <img class="organisation-modal-logo" src="{{ organisation.logo | relative_url }}" alt="{{ organisation.title }} logo" loading="lazy">
+              <h4>{{ organisation.title }}</h4>
+              <div class="organisation-modal-description">{{ organisation.content }}</div>
+              {% if organisation.website %}
+              <a class="button" href="{{ organisation.website }}">{{ organisation.link_label | default: "Visit organisation" }} <span aria-hidden="true">↗</span></a>
+              {% endif %}
+            </aside>
+          </article>
+          {% endif %}
+        {% endfor %}
+
+        {% if group.sample %}
+          {% capture sample_modal_id %}organisation-{{ group.id }}-sample{% endcapture %}
+          <article class="organisation-card organisation-card--sample" data-organisation-card>
+            <button
+              class="organisation-card-trigger"
+              type="button"
+              aria-label="Learn about {{ group.sample.title }}"
+              aria-expanded="false"
+              aria-controls="{{ sample_modal_id }}"
+            >
+              <span class="organisation-logo-frame">
+                <img src="{{ group.sample.logo | relative_url }}" alt="" loading="lazy">
+              </span>
+            </button>
+
+            <aside
+              class="organisation-modal"
+              id="{{ sample_modal_id }}"
+              role="dialog"
+              aria-label="About {{ group.sample.title }}"
+              aria-hidden="true"
+            >
+              <img class="organisation-modal-logo" src="{{ group.sample.logo | relative_url }}" alt="{{ group.sample.title }} logo" loading="lazy">
+              <h4>{{ group.sample.title }}</h4>
+              <div class="organisation-modal-description"><p>{{ group.sample.description }}</p></div>
+            </aside>
+          </article>
+        {% endif %}
+
+        {% if group.placeholder %}
+          <article class="organisation-card organisation-card--placeholder">
+            <a class="organisation-card-trigger organisation-placeholder-card" href="{{ group.placeholder.link | relative_url }}">
+              <span class="organisation-placeholder-title">{{ group.placeholder.title }}</span>
+              <span class="organisation-placeholder-description">{{ group.placeholder.description }}</span>
+              <span class="organisation-placeholder-link">{{ group.placeholder.link_label }} <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+        {% endif %}
+      </div>
+
+      {% if group.callout %}
+      <aside class="organisation-people-callout">
+        <div>
+          <p class="eyebrow">{{ group.callout.eyebrow }}</p>
+          <h4>{{ group.callout.title }}</h4>
+          <p>{{ group.callout.description }}</p>
+        </div>
+        <a class="button" href="{{ group.callout.link | relative_url }}">{{ group.callout.link_label }}</a>
+      </aside>
+      {% endif %}
+    </section>
+    {% endfor %}
+
+    <p class="organisation-showcase-directory-link">
+      <a class="button" href="{{ '/organisations/' | relative_url }}">View all organisations</a>
+    </p>
+  </div>
+</section>

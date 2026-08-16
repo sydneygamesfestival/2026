@@ -3,11 +3,12 @@ layout: default
 title: About
 slug: about
 permalink: /about/
-description: A festival organised by a committee of Sydney's games communities to host a city-wide celebration across industry, digital and tabletop games.
+description: A city-wide celebration created by a coalition of Sydney’s games communities.
 hero_theme: coral
 hero_eyebrow: About
 hero_title: Sydney's festival of games
 social_image: /assets/images/about-hero.png
+organisations: true
 ---
 
 {% include hero.html %}
@@ -21,39 +22,15 @@ social_image: /assets/images/about-hero.png
 </section>
 
 <section class="content-section">
-  <div class="container cards">
-    <article class="card"><h3>Games</h3><p>A local selection of games and game-making events.</p></article>
-    <article class="card"><h3>Events</h3><p>A variety of events for games of all kinds.</p></article>
-    <article class="card"><h3>Community</h3><p>Communities coming together to celebrate games and Sydney.</p></article>
-  </div>
-</section>
-
-<section class="colour-band coral-band">
   <div class="container text-centre">
-    <h2>What is it?</h2>
-    <p>Sydney Games Festival is a week-long series of events organised by communities coming together to celebrate shared culture across games in Sydney.</p>
-    <h2>Who is it for?</h2>
-    <p>Game makers, adjacent groups and their related fields—especially communities across digital, tabletop, board games and experimental formats.</p>
-    <h2>Why is it being organised?</h2>
-    <p>Sydney has a deep community of organisations who care about games across all forms and styles. The festival enriches these communities and supports activity and connection around gaming.</p>
-  </div>
-</section>
-
-<section class="content-section">
-  <div class="container text-centre">
-    <p class="eyebrow">Key foundational communities</p>
-    <h2>The groups bringing the festival to life</h2>
-    <p>They are hosting events, collaborating with others or supporting the festival's organisation across Sydney.</p>
-    <ul class="community-list">
-      <li>IGDA Sydney</li>
-      <li>Table Top Game Designers of Australia</li>
-      <li>Avant Harde Drive</li>
-      <li>Pixel Pasture</li>
-      <li>Playmakers</li>
-      <li>UNSW Game Making Society</li>
-      <li>Sydney Tabletop Association</li>
-      <li>More communities to be announced…</li>
-    </ul>
+    <div class="about-summary">
+      <p>Sydney Games Festival is a week-long program of events created by a coalition of Sydney’s games communities. Together, these groups bring independently produced events into one coordinated, city-wide festival celebrating games and the people who make, support and play them.</p>
+    </div>
+    <div class="about-description">
+      <p>Sydney is home to a rich and growing games culture, built by creators, players, students, studios and community organisers. Games are being made, played and celebrated across the city every day, but that activity often happens separately and is not always easy to discover. The festival creates a shared stage where these communities can connect, collaborate and bring their work to a wider audience. It gives the public a clearer way to discover the people, ideas and experiences already shaping games in Sydney.</p>
+      <p>Spanning digital games, tabletop games, experimental work and games in education, the week offers many ways to take part. Visitors might encounter new work at a showcase, meet local creators, contribute to a playtest, learn through a talk or workshop, join a game jam, make industry connections or experience games through meetups, live music, interactive performances and watch parties. Together, they reflect the many ways games can be creative, social and cultural experiences. Whether someone makes games, supports them or simply loves to play, there is a place for everyone at the festival.</p>
+      <p>While 2026 marks the festival’s beginning, its purpose is long term: to celebrate local work, help the public discover Sydney-made games and build relationships that sustain the city’s games culture. By connecting communities that do not often cross paths, increasing their collective visibility and supporting the activity that already exists, Sydney Games Festival can create momentum across Sydney’s games landscape. Over time, it can help establish Sydney as a city where games culture is widely recognised, supported and able to thrive.</p>
+    </div>
   </div>
 </section>
 
@@ -74,3 +51,5 @@ social_image: /assets/images/about-hero.png
     <p class="more-faqs"><a class="button" href="{{ '/faqs/' | relative_url }}">More FAQs</a></p>
   </div>
 </section>
+
+{% include organisation-showcase.html %}

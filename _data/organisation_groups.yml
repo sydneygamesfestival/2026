@@ -1,0 +1,50 @@
+intro:
+  eyebrow: Festival community
+  title: The groups bringing the festival to life
+  description: Sydney Games Festival is made possible by organisations working across games, community, education and creative technology.
+
+groups:
+  - id: leading
+    title: Leading Organisations
+    description: The organisations providing leadership and direction for Sydney Games Festival.
+    prominence: primary
+
+  - id: contributors
+    title: Festival Contributors
+    description: Organisations contributing to the coordination and running of the festival.
+    prominence: standard
+    callout:
+#      eyebrow: People behind the festival
+      title: Meet the people making it happen
+      description: Sydney Games Festival is coordinated by people giving their time, experience and care to bring the week together.
+      link: /festival-credits/
+      link_label: View festival credits
+
+  - id: venue
+    title: Preferred Venue Partner
+    description: A welcoming home for festival gatherings in the centre of Sydney.
+    prominence: featured
+
+  - id: events
+    title: Event Contributing Organisations
+    description: Groups leading the independent events that make up the festival.
+    prominence: standard
+    placeholder:
+      title: Your event
+      description: Bring an independent event into Sydney Games Festival.
+      link: /get-involved/
+      link_label: Get involved
+
+  - id: supporters
+    title: Festival Supporters
+    description: Organisations supporting the festival and its wider community.
+    prominence: supporting
+    sample:
+      title: Sample organisation
+      logo: /assets/images/organisations/sample-organisation.svg
+      description: An example of how a festival supporter will appear in this section.
+    placeholder:
+      title: This could be you
+      description: Help support Sydney Games Festival and its community.
+      link: /get-involved/
+      link_label: Support the festival

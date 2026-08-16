@@ -102,6 +102,7 @@
     if (media.length > 1) return 'Multiple Kinds';
 
     const medium = normalise(media[0]);
+    if (medium.includes('hybrid') || medium.includes('multiple')) return 'Multiple Kinds';
     if (medium.includes('digital') || medium.includes('screen')) return 'Screen (Digital)';
     if (medium.includes('tabletop') || medium.includes('live play') ||
         medium.includes('parlour') || medium.includes('larp')) {
@@ -136,6 +137,25 @@
     } catch (error) {
       return '';
     }
+  }
+
+  function cleanImageUrl(value) {
+    const raw = cleanText(value);
+    if (!raw) return '';
+
+    if (/^https?:\/\//i.test(raw)) return cleanUrl(raw);
+
+    /* Approved event images can be committed to assets/images/program and
+       referenced from the sheet by filename. */
+    if (/^[a-z0-9][a-z0-9._-]*$/i.test(raw) && schedule.dataset.imageBaseUrl) {
+      return new URL(encodeURIComponent(raw), new URL(schedule.dataset.imageBaseUrl, window.location.origin)).href;
+    }
+
+    if (/^\/(?!\/)/.test(raw)) {
+      return new URL(raw, window.location.origin).href;
+    }
+
+    return '';
   }
 
   /* Small CSV reader that handles quoted commas, quotes and line breaks. */
@@ -246,7 +266,9 @@
     const text = cleanText(value);
     if (!text) return null;
 
-    const match = text.match(/(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)?/i);
+    /* Google Sheets may export a time as an epoch-dated value such as
+       "12/30/1899 17:00:00". Match the trailing time and ignore that date. */
+    const match = text.match(/(?:^|\s)(\d{1,2})(?::(\d{2}))?(?::\d{2})?\s*(a\.?m\.?|p\.?m\.?)?\s*$/i);
     if (!match) return null;
 
     let hour = Number(match[1]);
@@ -290,18 +312,19 @@
       organisation: organisation,
       published: /^y/.test(normalise(pick(row, headers, 'published'))),
       draftReady: planningStage.startsWith('confirmed') || planningStage.startsWith('announced'),
-      description: pick(row, headers, 'marketing blurb') || pick(row, headers, 'tell us about'),
+      description: pick(row, headers, 'marketing description'),
       gameKind: gameKind(row, headers, detailedGameTypes),
       gameTypes: detailedGameTypes,
       audiences: splitList(pick(row, headers, 'type of audience')),
       duration: pick(row, headers, 'how long', 'duration') || pick(row, headers, 'duration'),
       location: pick(row, headers, 'where do you plan'),
       ticketUrl: cleanUrl(pick(row, headers, 'what url should we direct')),
-      thumbnail: cleanUrl(pick(row, headers, 'url to thumbnail')),
+      thumbnail: cleanImageUrl(pick(row, headers, 'url to hero thumbnail')),
       startTime: startTime,
       endTime: endTime,
       startMinutes: parseTime(startTime),
       endMinutes: parseTime(endTime),
+      specificDate: specificDate,
       dayIsos: dayIsos,
       region: region,
     };
@@ -367,6 +390,25 @@
     return formatTime(event.startMinutes) + ' – ' + formatTime(event.endMinutes);
   }
 
+  function eventDate(event) {
+    const selectedFestivalDay = festivalDays.find(function (day) {
+      return day.iso === state.selectedDay && event.dayIsos.includes(day.iso);
+    });
+    if (selectedFestivalDay) return selectedFestivalDay.day + ' ' + selectedFestivalDay.date;
+
+    if (!event.specificDate) return 'Date to come';
+    const parts = event.specificDate.split('-').map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString('en-AU', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+    });
+  }
+
+  function eventDateTime(event) {
+    return eventDate(event) + ' · ' + eventTime(event);
+  }
+
   function audienceBadge(event) {
     const values = event.audiences.join(' ').toLowerCase();
     if (values.includes('maker')) return 'Makers';
@@ -398,7 +440,7 @@
 
     return '<article class="schedule-card">' +
       '<div class="schedule-card-top">' +
-        '<strong class="schedule-card-time">' + escapeHtml(eventTime(event)) + '</strong>' +
+        '<strong class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</strong>' +
         (badge ? '<span class="schedule-audience">' + escapeHtml(badge) + '</span>' : '') +
         ticket +
       '</div>' +
@@ -406,7 +448,9 @@
       (event.organisation ? '<p class="schedule-organisation">' + escapeHtml(event.organisation) + '</p>' : '') +
       '<div class="schedule-card-body">' +
         imageHtml(event) +
-        '<div class="schedule-card-about"><h4>About</h4><p>' + escapeHtml(event.description || 'Further event details will be announced soon.') + '</p></div>' +
+        '<div class="schedule-card-about">' + (event.description
+          ? '<h4>About</h4><p>' + escapeHtml(event.description) + '</p>'
+          : '') + '</div>' +
       '</div>' +
       '<div class="schedule-card-meta">' +
         metaItem('Games', event.gameKind) +

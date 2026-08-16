@@ -3,7 +3,7 @@ layout: default
 title: Program
 slug: program
 permalink: /program/
-description: Schedule and event times to be revealed soon.
+description: Explore games events happening across Sydney throughout the festival week.
 hero_theme: orange
 hero_eyebrow: Program
 hero_title: Find out what's on and when
@@ -27,7 +27,7 @@ program_schedule: true
     <p class="eyebrow">Coming soon</p>
     <h2>The 2026 festival schedule is being assembled</h2>
     <p>Individual communities will announce their own events, venues and entry details. Check back soon, or join the mailing list for updates.</p>
-    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Get program updates</a>
+    <a class="button" href="{{ '/mailing-list/' | relative_url }}">Get program updates</a>
   </div>
 </section>
 -->
@@ -71,7 +71,7 @@ program_schedule: true
     <div class="text-centre">
       <p>Individual communities will announce their own events, venues and entry details. Check back soon, or join the mailing list for updates.</p>
       <div class="signup">
-        <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Get program updates</a>
+        <a class="button" href="{{ '/mailing-list/' | relative_url }}">Get program updates</a>
         <a class="button" href="#full-schedule">Current schedule</a>
       </div>
     </div>
@@ -100,7 +100,8 @@ program_schedule: true
       id="program-schedule"
       data-events-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_QICyyTV2CLhcoyQOO_v3HshLMA2MQBGU-dIjFxMLDImYkPN1pCvswFjGinOqqOHAVlLNyGblw6KN/pub?gid=171864363&amp;single=true&amp;output=csv"
       data-sample-url="{{ '/assets/data/program-events-sample.csv' | relative_url }}"
-      data-notify-url="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog"
+      data-image-base-url="{{ '/assets/images/program/' | relative_url }}"
+      data-notify-url="{{ '/mailing-list/' | relative_url }}"
     >
       <div class="schedule-layout">
         <nav class="schedule-days" id="schedule-days" aria-label="Festival dates"></nav>

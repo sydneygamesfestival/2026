@@ -205,6 +205,96 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 .content-section h2 { margin-top: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1; }
 .text-centre { max-width: 780px; margin-left: auto; margin-right: auto; text-align: center; }
 
+.about-summary {
+  margin-bottom: 46px;
+  padding: 30px 34px;
+  background: #fff4e8;
+  border: 3px solid var(--ink);
+  box-shadow: 9px 9px 0 var(--orange);
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.about-summary p,
+.about-description p { margin: 0; }
+
+.about-description {
+  max-width: 720px;
+  margin-inline: auto;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.about-description p + p { margin-top: 1.6rem; }
+
+/* Embedded Google Forms */
+.form-hero { padding-bottom: 48px; }
+
+.form-section {
+  padding: 0 0 76px;
+}
+
+.form-container {
+  width: min(860px, calc(100% - 40px));
+}
+
+.google-form {
+  display: block;
+  width: 100%;
+  min-height: 1100px;
+  background: white;
+  border: 2px solid var(--ink);
+}
+
+.form-fallback {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+.form-fallback a { font-weight: 700; }
+
+/* Text and utility pages */
+.layout-text .hero { padding-bottom: 52px; }
+
+.layout-text main > :not(.hero) {
+  width: min(780px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.layout-text main > .hero + * { margin-top: 0; }
+
+.layout-text main > p {
+  margin-block: 0 1.25rem;
+}
+
+.layout-text main > h2,
+.layout-text main > h3 {
+  margin-block: 2.75rem 1rem;
+  line-height: 1.15;
+}
+
+.layout-text main > h2 { font-size: clamp(1.5rem, 3.5vw, 2.35rem); }
+.layout-text main > h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
+
+.layout-text main > ul,
+.layout-text main > ol {
+  margin-block: 0.5rem 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.layout-text main > ul li + li,
+.layout-text main > ol li + li { margin-top: 0.55rem; }
+
+.layout-text main > p a {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.layout-text main > :last-child { margin-bottom: 76px; }
+
 .marquee { overflow: hidden; }
 .marquee-track {
   display: flex;
@@ -622,6 +712,518 @@ a.schedule-ticket:focus-visible { background: var(--ink); }
 .community-list { columns: 2; gap: 40px; padding: 0; list-style: none; }
 .community-list li { padding: 12px 0; border-bottom: 2px solid currentColor; }
 
+/* Organisation showcase */
+.organisation-showcase {
+  background: #fff4e8;
+}
+
+.organisation-showcase-intro {
+  margin-bottom: 72px;
+}
+
+.organisation-showcase-intro h2 {
+  margin-bottom: 20px;
+}
+
+.organisation-tier {
+  padding: 25px 0 25px;
+  border-top: 0px solid var(--ink);
+}
+
+.organisation-tier-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.organisation-tier-heading h3,
+.organisation-tier-heading p {
+  margin: 0;
+}
+
+.organisation-tier-heading h3 {
+  font-size: clamp(1.55rem, 3.5vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.organisation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.organisation-tier--leading .organisation-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.organisation-tier--venue .organisation-grid {
+  grid-template-columns: minmax(0, 560px);
+}
+
+.organisation-tier--events .organisation-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.organisation-tier--supporters .organisation-grid {
+  grid-template-columns: repeat(2, minmax(0, 300px));
+}
+
+.organisation-card {
+  position: relative;
+  min-width: 0;
+}
+
+.organisation-card:hover,
+.organisation-card:focus-within,
+.organisation-card.is-open {
+  z-index: 5;
+}
+
+.organisation-card-trigger {
+  display: flex;
+  width: 100%;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--ink);
+  background: white;
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--orange);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.organisation-card-trigger:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 5px;
+}
+
+.organisation-logo-frame {
+  display: grid;
+  width: 100%;
+  height: 130px;
+  place-items: center;
+}
+
+.organisation-logo-frame img {
+  display: block;
+  max-width: min(100%, 230px);
+  max-height: 130px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.organisation-tier--primary .organisation-card-trigger {
+  min-height: 300px;
+  padding: 34px;
+  box-shadow: 12px 12px 0 var(--coral);
+}
+
+.organisation-tier--primary .organisation-logo-frame {
+  height: 180px;
+}
+
+.organisation-tier--primary .organisation-logo-frame img {
+  max-width: min(100%, 310px);
+  max-height: 180px;
+}
+
+.organisation-tier--featured .organisation-card-trigger {
+  min-height: 260px;
+  box-shadow: 10px 10px 0 var(--blue);
+}
+
+.organisation-tier--supporting .organisation-card-trigger {
+  min-height: 150px;
+  padding: 20px;
+  box-shadow: 6px 6px 0 var(--coral);
+}
+
+.organisation-tier--supporting .organisation-logo-frame {
+  height: 90px;
+}
+
+.organisation-tier--supporting .organisation-logo-frame img {
+  max-height: 90px;
+}
+
+.organisation-placeholder-card {
+  flex-direction: column;
+  gap: 12px;
+  background: var(--paper);
+  border-style: dashed;
+  text-align: center;
+  text-decoration: none;
+}
+
+.organisation-placeholder-card:hover,
+.organisation-placeholder-card:focus-visible {
+  background: white;
+}
+
+.organisation-placeholder-title {
+  font-family: var(--font-subheading);
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.organisation-placeholder-description {
+  max-width: 260px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.organisation-placeholder-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.organisation-tier--supporting .organisation-placeholder-card {
+  min-height: 180px;
+}
+
+.organisation-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: min(440px, calc(100vw - 56px));
+  min-height: calc(100% + 32px);
+  padding: 28px;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--blue);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.96);
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+}
+
+.organisation-tier--primary .organisation-modal {
+  width: min(520px, calc(100vw - 56px));
+  box-shadow: 14px 14px 0 var(--coral);
+}
+
+.organisation-card:hover .organisation-modal,
+.organisation-card:focus-within .organisation-modal,
+.organisation-card.is-open .organisation-modal {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.organisation-card.is-dismissed .organisation-modal {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.organisation-card:first-child .organisation-modal {
+  left: 0;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-card:first-child:hover .organisation-modal,
+.organisation-card:first-child:focus-within .organisation-modal,
+.organisation-card:first-child.is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-card:last-child .organisation-modal {
+  right: 0;
+  left: auto;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-card:last-child:hover .organisation-modal,
+.organisation-card:last-child:focus-within .organisation-modal,
+.organisation-card:last-child.is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-card:only-child .organisation-modal {
+  right: auto;
+  left: 0;
+}
+
+.organisation-card:first-child.is-dismissed .organisation-modal,
+.organisation-card:last-child.is-dismissed .organisation-modal {
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n + 1) .organisation-modal {
+  right: auto;
+  left: 0;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n + 1):hover .organisation-modal,
+.organisation-tier--events .organisation-card:nth-child(4n + 1):focus-within .organisation-modal,
+.organisation-tier--events .organisation-card:nth-child(4n + 1).is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n + 1).is-dismissed .organisation-modal {
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n) .organisation-modal {
+  right: 0;
+  left: auto;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n):hover .organisation-modal,
+.organisation-tier--events .organisation-card:nth-child(4n):focus-within .organisation-modal,
+.organisation-tier--events .organisation-card:nth-child(4n).is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-tier--events .organisation-card:nth-child(4n).is-dismissed .organisation-modal {
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--contributors .organisation-card:nth-child(3n + 1) .organisation-modal {
+  right: auto;
+  left: 0;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--contributors .organisation-card:nth-child(3n + 1):hover .organisation-modal,
+.organisation-tier--contributors .organisation-card:nth-child(3n + 1):focus-within .organisation-modal,
+.organisation-tier--contributors .organisation-card:nth-child(3n + 1).is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-tier--contributors .organisation-card:nth-child(3n) .organisation-modal {
+  right: 0;
+  left: auto;
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-tier--contributors .organisation-card:nth-child(3n):hover .organisation-modal,
+.organisation-tier--contributors .organisation-card:nth-child(3n):focus-within .organisation-modal,
+.organisation-tier--contributors .organisation-card:nth-child(3n).is-open .organisation-modal {
+  transform: translate(0, -50%) scale(1);
+}
+
+.organisation-tier--contributors .organisation-card:nth-child(3n + 1).is-dismissed .organisation-modal,
+.organisation-tier--contributors .organisation-card:nth-child(3n).is-dismissed .organisation-modal {
+  transform: translate(0, -50%) scale(0.96);
+}
+
+.organisation-modal-logo {
+  display: block;
+  max-width: min(100%, 220px);
+  height: 88px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.organisation-modal h4 {
+  margin: 0 0 12px;
+  font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.organisation-modal-description p {
+  margin: 0 0 22px;
+}
+
+.organisation-modal .button {
+  font-size: 0.85rem;
+}
+
+.organisation-people-callout {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 42px;
+  padding: 32px;
+  color: white;
+  background: var(--blue);
+  box-shadow: 10px 10px 0 var(--orange);
+}
+
+.organisation-people-callout h4 {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 3vw, 2.15rem);
+}
+
+.organisation-people-callout p:last-child {
+  max-width: 680px;
+  margin: 0;
+}
+
+.organisation-people-callout .button {
+  flex: 0 0 auto;
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.organisation-showcase-directory-link {
+  margin: 20px 0 0;
+  padding-top: 44px;
+  border-top: 3px solid var(--ink);
+  text-align: center;
+}
+
+/* Organisation directory */
+.organisation-directory-section {
+  background: #fff4e8;
+}
+
+.organisation-directory-wrap {
+  overflow-x: auto;
+  border-top: 3px solid var(--ink);
+}
+
+.organisation-directory-table {
+  width: 100%;
+  min-width: 660px;
+  border-collapse: collapse;
+}
+
+.organisation-directory-table th,
+.organisation-directory-table td {
+  padding: 22px 20px;
+  border-bottom: 2px solid var(--ink);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.organisation-directory-table thead th {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.organisation-directory-table tbody th {
+  width: 30%;
+  font-family: var(--font-subheading);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.organisation-directory-table tbody td:first-child {
+  width: 190px;
+}
+
+.organisation-directory-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.organisation-directory-logo {
+  display: grid;
+  width: 150px;
+  height: 84px;
+  place-items: center;
+}
+
+.organisation-directory-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 84px;
+  object-fit: contain;
+}
+
+.organisation-directory-logo:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 5px;
+}
+
+@media (max-width: 980px) {
+  .organisation-grid,
+  .organisation-tier--events .organisation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .organisation-tier--events .organisation-card:nth-child(odd) .organisation-modal {
+    right: auto;
+    left: 0;
+  }
+
+  .organisation-tier--events .organisation-card:nth-child(even) .organisation-modal {
+    right: 0;
+    left: auto;
+  }
+
+  .organisation-tier--contributors .organisation-card:nth-child(odd) .organisation-modal {
+    right: auto;
+    left: 0;
+  }
+
+  .organisation-tier--contributors .organisation-card:nth-child(even) .organisation-modal {
+    right: 0;
+    left: auto;
+  }
+
+}
+
+@media (max-width: 720px) {
+  .organisation-showcase-intro { margin-bottom: 52px; }
+
+  .organisation-tier-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .organisation-grid,
+  .organisation-tier--leading .organisation-grid,
+  .organisation-tier--events .organisation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .organisation-tier--venue .organisation-grid,
+  .organisation-tier--supporters .organisation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .organisation-card-trigger,
+  .organisation-tier--primary .organisation-card-trigger,
+  .organisation-tier--featured .organisation-card-trigger {
+    min-height: 240px;
+  }
+
+  .organisation-people-callout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .organisation-tier--events .organisation-card .organisation-modal {
+    right: auto;
+    left: 0;
+  }
+
+  .organisation-tier--contributors .organisation-card .organisation-modal {
+    right: auto;
+    left: 0;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .organisation-modal { transition: none; }
+}
+
 details { border-top: 2px solid currentColor; padding: 16px 0; }
 details:last-child { border-bottom: 2px solid currentColor; }
 summary { cursor: pointer; font-weight: 700; }
@@ -736,6 +1338,22 @@ summary { cursor: pointer; font-weight: 700; }
   text-transform: uppercase;
 }
 .page-festival-credits main > table tbody td:first-child { width: 28%; }
+.festival-credit-organisation-logo {
+  display: grid;
+  width: min(150px, 100%);
+  height: 84px;
+  place-items: center;
+}
+.festival-credit-organisation-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 84px;
+  object-fit: contain;
+}
+.festival-credit-organisation-people {
+  margin: 0;
+  padding-left: 1.25rem;
+}
 
 @media (min-width: 901px) {
   body { padding-right: var(--desktop-navigation-width); }

@@ -7,5 +7,7 @@ markdown: kramdown
 collections:
   faqs:
     output: false
+  organisations:
+    output: false
 
 # GitHub Pages does not need any custom plugins for this site.

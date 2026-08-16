@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-labelledby="title desc">
+  <title id="title">Sample organisation logo</title>
+  <desc id="desc">A placeholder wordmark reading Sample Org.</desc>
+  <rect width="600" height="240" fill="none"/>
+  <text x="300" y="105" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900" text-anchor="middle">SAMPLE</text>
+  <text x="300" y="184" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900" text-anchor="middle">ORG</text>
+</svg>

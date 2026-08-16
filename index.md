@@ -2,7 +2,7 @@
 layout: default
 title: Sydney's festival of games
 slug: home
-description: A week-long festival of games events in Sydney, organised by community-run game-making groups for video games, tabletop and more.
+description: A week-long, city-wide celebration of games and the people who make, support and play them.
 hero_theme: blue
 hero_title: Sydney Games Festival
 hero_logo: /assets/images/sgf-logo-lockup.png
@@ -22,11 +22,11 @@ social_image: /assets/images/home-hero.jpg
 
 <section class="content-section">
   <div class="container text-centre">
-    <p class="eyebrow">About Festival</p>
+    <p class="eyebrow">About the festival</p>
     <h1>A week of games, creators and communities</h1>
-    <p class="lede">Sydney Games Festival brings people together across Sydney to celebrate games, game making and the communities around them.</p>
+    <p class="lede">Created by a coalition of Sydney’s games communities, the festival brings independently produced events together in one coordinated program.</p>
     <div class="signup">
-      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Sign up for news</a>
+      <a class="button" href="{{ '/mailing-list/' | relative_url }}">Sign up for news</a>
       <a class="button" href="{{ '/about/' | relative_url }}">About the festival</a>
     </div>
   </div>
@@ -43,10 +43,10 @@ social_image: /assets/images/home-hero.jpg
 
 <section class="content-section">
   <div class="container text-centre">
-    <p class="eyebrow">Coming soon</p>
-    <h2>The 2026 festival schedule is being assembled</h2>
-    <p>Individual communities will announce their own events, venues and entry details. Check back soon, or join the mailing list for updates.</p>
+    <p class="eyebrow">Program</p>
+    <h2>The 2026 festival program is taking shape</h2>
+    <p>Events, venues and times are being added as they are confirmed. Explore the current program or join the mailing list for updates.</p>
     <a class="button" href="{{ '/program/' | relative_url }}">See the current program</a>
-    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJqYQ15IG4nLV4qXf8BW2lZ1_2Efn-dXQWzCuL6SyUoxwuKw/viewform?usp=dialog">Get program updates</a> 
+    <a class="button" href="{{ '/mailing-list/' | relative_url }}">Get program updates</a> 
   </div>
 </section>
