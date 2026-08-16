@@ -467,11 +467,12 @@
 
   function audienceBadges(event) {
     const buckets = audienceBuckets(event);
-    return audienceOptions.filter(function (option) {
+    const badges = audienceOptions.filter(function (option) {
       return buckets.has(option.key);
     }).map(function (option) {
       return option.label;
     });
+    return badges.length === audienceOptions.length ? ['All'] : badges;
   }
 
   function metaItem(label, value) {
@@ -486,33 +487,44 @@
       escapeHtml(event.title + ' event artwork') + '"></div>';
   }
 
-  function cardHtml(event) {
-    const badges = audienceBadges(event).map(function (badge) {
+  function audienceHtml(event) {
+    const badges = audienceBadges(event);
+    if (!badges.length) return '<span class="schedule-meta-value">To come</span>';
+    return '<span class="schedule-meta-audiences">' + badges.map(function (badge) {
       return '<span class="schedule-audience">' + escapeHtml(badge) + '</span>';
-    }).join('');
-    const ticket = event.ticketUrl
-      ? '<a class="schedule-ticket" href="' + escapeHtml(event.ticketUrl) + '" target="_blank" rel="noopener">Event details</a>'
-      : '<span class="schedule-ticket schedule-ticket-unavailable">Details to come</span>';
+    }).join('') + '</span>';
+  }
+
+  function ticketHtml(event) {
+    return event.ticketUrl
+      ? '<a class="schedule-ticket" href="' + escapeHtml(event.ticketUrl) +
+        '" target="_blank" rel="noopener"><span>Event details</span><span aria-hidden="true">→</span></a>'
+      : '<span class="schedule-ticket schedule-ticket-unavailable"><span>Details to come</span></span>';
+  }
+
+  function cardHtml(event) {
+    const ticket = ticketHtml(event);
+    const audiences = audienceHtml(event);
 
     return '<article class="schedule-card">' +
-      '<div class="schedule-card-top">' +
-        '<span class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</span>' +
-        badges +
-        ticket +
-      '</div>' +
-      '<h3>' + escapeHtml(event.title) + '</h3>' +
-      (event.organisation ? '<p class="schedule-organisation">' + escapeHtml(event.organisation) + '</p>' : '') +
-      '<div class="schedule-card-body">' +
-        imageHtml(event) +
-        '<div class="schedule-card-about">' + (event.description
-          ? '<h4>About</h4><p>' + escapeHtml(event.description) + '</p>'
-          : '') + '</div>' +
-      '</div>' +
+      '<header class="schedule-card-header">' +
+        '<p class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</p>' +
+        '<div class="schedule-card-heading"><h3>' + escapeHtml(event.title) + '</h3>' +
+          (event.organisation ? '<p class="schedule-organisation"><strong>Presented by</strong> ' + escapeHtml(event.organisation) + '</p>' : '') +
+        '</div>' +
+        '<div class="schedule-card-primary-action">' + ticket + '</div>' +
+      '</header>' +
+      imageHtml(event) +
+      '<div class="schedule-card-about">' + (event.description
+        ? '<p>' + escapeHtml(event.description) + '</p>'
+        : '') + '</div>' +
       '<div class="schedule-card-meta">' +
         metaItem('Games', event.gameKind) +
         metaItem('Location', event.location) +
         metaItem('Duration', event.duration) +
+        '<div><span>Suitable for</span>' + audiences + '</div>' +
       '</div>' +
+      '<div class="schedule-card-bottom-action">' + ticket + '</div>' +
     '</article>';
   }
 
