@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Space+Grotesk:wght@400;500;700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   </head>
   <body class="page-{{ page.slug }} layout-{{ page.layout }}">
     {% include header.html %}

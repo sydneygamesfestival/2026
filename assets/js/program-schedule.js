@@ -89,6 +89,16 @@
     return String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
   }
 
+  function cleanMultilineText(value) {
+    return String(value == null ? '' : value)
+      .replace(/\r\n?/g, '\n')
+      .split('\n')
+      .map(function (line) { return line.replace(/[ \t]+/g, ' ').trim(); })
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+  }
+
   function splitList(value) {
     return cleanText(value)
       .split(',')
@@ -220,6 +230,14 @@
     return match ? cleanText(row[match.raw]) : '';
   }
 
+  function pickMultiline(row, headers) {
+    const tokens = Array.prototype.slice.call(arguments, 2).map(normalise);
+    const match = headers.find(function (header) {
+      return tokens.every(function (token) { return header.normalised.includes(token); });
+    });
+    return match ? cleanMultilineText(row[match.raw]) : '';
+  }
+
   function dateToIso(date) {
     return [
       date.getFullYear(),
@@ -279,6 +297,38 @@
     return hour <= 23 && minute <= 59 ? hour * 60 + minute : null;
   }
 
+  function parseDurationHours(value) {
+    const text = cleanText(value);
+    if (!text) return null;
+
+    let match = text.match(/^(\d+):(\d{2})(?::\d{2})?$/);
+    if (match) return Number(match[1]) + Number(match[2]) / 60;
+
+    const hours = text.match(/(\d+(?:\.\d+)?)\s*(?:h|hr|hrs|hour|hours)\b/i);
+    const minutes = text.match(/(\d+(?:\.\d+)?)\s*(?:m|min|mins|minute|minutes)\b/i);
+    if (hours || minutes) {
+      return Number(hours ? hours[1] : 0) + Number(minutes ? minutes[1] : 0) / 60;
+    }
+
+    match = text.match(/^\d+(?:\.\d+)?$/);
+    return match ? Number(match[0]) : null;
+  }
+
+  function formatDuration(value, startMinutes, endMinutes) {
+    let hours = parseDurationHours(value);
+
+    if (hours == null && startMinutes != null && endMinutes != null) {
+      let durationMinutes = endMinutes - startMinutes;
+      if (durationMinutes < 0) durationMinutes += 24 * 60;
+      if (durationMinutes > 0) hours = durationMinutes / 60;
+    }
+
+    if (hours == null || hours <= 0) return '';
+    const rounded = Math.round(hours * 2) / 2;
+    const number = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+    return number + (rounded === 1 ? ' hour' : ' hours');
+  }
+
   function buildEvent(row) {
     const headers = headerIndex(row);
     const specificDate = parseDate(pick(row, headers, 'specific date'));
@@ -302,6 +352,8 @@
 
     const startTime = pick(row, headers, 'start time');
     const endTime = pick(row, headers, 'end time');
+    const startMinutes = parseTime(startTime);
+    const endMinutes = parseTime(endTime);
     const organisation = pick(row, headers, 'organisation');
     const title = pick(row, headers, 'event name') || organisation || 'Untitled event';
     const planningStage = normalise(pick(row, headers, 'stage of planning'));
@@ -312,18 +364,22 @@
       organisation: organisation,
       published: /^y/.test(normalise(pick(row, headers, 'published'))),
       draftReady: planningStage.startsWith('confirmed') || planningStage.startsWith('announced'),
-      description: pick(row, headers, 'marketing description'),
+      description: pickMultiline(row, headers, 'marketing description'),
       gameKind: gameKind(row, headers, detailedGameTypes),
       gameTypes: detailedGameTypes,
       audiences: splitList(pick(row, headers, 'type of audience')),
-      duration: pick(row, headers, 'how long', 'duration') || pick(row, headers, 'duration'),
+      duration: formatDuration(
+        pick(row, headers, 'how long', 'duration') || pick(row, headers, 'duration'),
+        startMinutes,
+        endMinutes
+      ),
       location: pick(row, headers, 'where do you plan'),
       ticketUrl: cleanUrl(pick(row, headers, 'what url should we direct')),
       thumbnail: cleanImageUrl(pick(row, headers, 'url to hero thumbnail')),
       startTime: startTime,
       endTime: endTime,
-      startMinutes: parseTime(startTime),
-      endMinutes: parseTime(endTime),
+      startMinutes: startMinutes,
+      endMinutes: endMinutes,
       specificDate: specificDate,
       dayIsos: dayIsos,
       region: region,
@@ -409,15 +465,13 @@
     return eventDate(event) + ' · ' + eventTime(event);
   }
 
-  function audienceBadge(event) {
-    const values = event.audiences.join(' ').toLowerCase();
-    if (values.includes('maker')) return 'Makers';
-    if (values.includes('industry')) return 'Industry';
-    if (values.includes('academic')) return 'Academics';
-    if (values.includes('student')) return 'Students';
-    if (values.includes('player')) return 'Players';
-    if (values.includes('public')) return 'Everyone';
-    return event.audiences[0] || '';
+  function audienceBadges(event) {
+    const buckets = audienceBuckets(event);
+    return audienceOptions.filter(function (option) {
+      return buckets.has(option.key);
+    }).map(function (option) {
+      return option.label;
+    });
   }
 
   function metaItem(label, value) {
@@ -433,15 +487,17 @@
   }
 
   function cardHtml(event) {
-    const badge = audienceBadge(event);
+    const badges = audienceBadges(event).map(function (badge) {
+      return '<span class="schedule-audience">' + escapeHtml(badge) + '</span>';
+    }).join('');
     const ticket = event.ticketUrl
       ? '<a class="schedule-ticket" href="' + escapeHtml(event.ticketUrl) + '" target="_blank" rel="noopener">Event details</a>'
       : '<span class="schedule-ticket schedule-ticket-unavailable">Details to come</span>';
 
     return '<article class="schedule-card">' +
       '<div class="schedule-card-top">' +
-        '<strong class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</strong>' +
-        (badge ? '<span class="schedule-audience">' + escapeHtml(badge) + '</span>' : '') +
+        '<span class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</span>' +
+        badges +
         ticket +
       '</div>' +
       '<h3>' + escapeHtml(event.title) + '</h3>' +

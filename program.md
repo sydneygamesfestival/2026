@@ -56,13 +56,13 @@ program_schedule: true
         </thead>
         <tbody>
           <tr>
-            <td><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
-            <td><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-13">Constellations</a></td>
-            <td><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
-            <td><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-15">Extra Lives Concert</a></td>
-            <td><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
-            <td><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-17">Takeover</a></td>
-            <td><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
+            <td class="program-week-day-empty" data-date="Mon 12 Oct"><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
+            <td data-date="Tue 13 Oct"><a class="program-week-event program-week-event-long" href="#full-schedule" data-schedule-date="2026-10-13">Constellations</a></td>
+            <td data-date="Wed 14 Oct"><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-14">Board Game Dev Night</a></td>
+            <td data-date="Thu 15 Oct"><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-15">Extra Lives Concert</a></td>
+            <td data-date="Fri 16 Oct"><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-16">Industry Talks</a></td>
+            <td data-date="Sat 17 Oct"><a class="program-week-event" href="#full-schedule" data-schedule-date="2026-10-17">All Play Day</a></td>
+            <td class="program-week-day-empty" data-date="Sun 18 Oct"><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
           </tr>
         </tbody>
       </table>
