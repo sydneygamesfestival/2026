@@ -12,54 +12,81 @@ permalink: /code-of-conduct/
     <p class="lede">Our shared commitment to a safe, respectful and inclusive festival.</p>
   </div>
 </section>
-Sydney Games Festival is committed to ensuring a safe, respectful, and inclusive space for all participants to freely express themselves and engage without judgment or harassment. This Code of Conduct provides guidelines that participants must follow to ensure everyone can engage in a fun, positive, and safe environment.
 
-By attending Sydney Games Festival events and engaging with the community, participants agree to abide by the rules and conditions of the Code of Conduct. Failure to comply may result in warnings, removal from the event, and/or banning from the community and all future events.
+Sydney Games Festival is committed to providing a safe, respectful and inclusive space where everyone can freely express themselves, have fun and engage without judgement or harassment. By participating in the festival or its community, you agree to follow this Code of Conduct. Attempts to bypass it through coded language, insinuations or plausible deniability will not be tolerated.
 
-Attempts to bypass this Code of Conduct through coded language, insinuations, or plausible deniability will not be tolerated.
+<nav class="signup" aria-label="Code of Conduct sections">
+  <a class="button" href="#everyone">Code for everyone</a>
+  <a class="button" href="#event-organisers">Requirements for event organisers</a>
+</nav>
 
-### **Fostering an Inclusive and Respectful Environment**
+<h2 id="everyone">Code for everyone</h2>
 
-Sydney Games Festival thrives in maintaining an environment of respect and understanding between participants. Everyone deserves to feel welcome and comfortable. As such, behaviour that goes against this is heavily discouraged and may carry consequences. Examples of this behaviour include but are not limited to:
+This Code applies to everyone participating in Sydney Games Festival events, related online spaces and associated social gatherings. Our ability to act may be limited at unofficial gatherings, but related conduct may still affect future festival participation.
 
-* Harassment, bullying, or targeting of groups/individuals.  
-* Patronising or dismissive behaviour.  
-* Non-consensual physical contact.  
-* Interrupting, talking over, or belittling others.  
-* Bringing real weapons or any objects—including props—not designed for safe cosplay use that could cause harm.  
-* Lewd or inappropriate comments/innuendos, as well as sexual advances.  
-* Discrimination based on race, gender identity, sexual orientation, disability, neurodivergence, appearance, or any other form of identity or personal characteristic.  
-* Encouraging or enabling any of the above, or other disrespectful behaviour.
+### Inclusive and respectful behaviour
 
-If you are informed that your behaviour is disrespectful, or if you recognise such behaviour in yourself, please pause, reflect, and adjust moving forward.
+Sydney Games Festival thrives by maintaining an environment of respect and understanding. Everyone deserves to feel welcome and comfortable. Unacceptable behaviour includes, but is not limited to:
 
-## **Professional Etiquette**
+- Harassment, bullying, patronising or belittling others, deliberate intimidation or threats.
+- Discrimination based on race or cultural background—including Aboriginal and Torres Strait Islander identity—nationality, age, religion, gender, gender identity or expression, sex characteristics, sexual orientation, disability, neurodivergence, appearance, pregnancy, family or carer status, socioeconomic background, or any other identity or personal characteristic.
+- Lewd or inappropriate comments or innuendos, unwelcome sexual attention, or sexualised content without appropriate context or warning.
+- Non-consensual physical contact, stalking or following.
+- Deliberate misgendering or use of a name that a person has asked others not to use.
+- Unwanted photography or recording, or sharing another person's private information without permission.
+- Sustained disruption of talks, games, performances or other activities.
+- Bringing real weapons or objects—including props—not designed for safe cosplay use that could cause harm.
+- Encouraging or enabling any of the above, or retaliating against or victimising someone for raising a concern.
 
-As Sydney Games Festival hosts events and gatherings for networking and recreational purposes, participants are expected to maintain a minimum degree of professionalism when engaging with the community. This includes:
+If you are informed that your behaviour is disrespectful, or recognise such behaviour in yourself, please pause, reflect and adjust moving forward.
 
-* Behaving in a mature and respectful manner: Avoid gossip, negative talk towards others, as well as crude, vulgar, or offensive language.  
-* Seeking permission before offering advice or feedback: Always ensure that feedback is constructive, avoiding dismissive behaviour like sarcasm or condescension.  
-* Avoiding aggressive self-promotion and/or advertising.  
-* Avoiding being under excessive influence of alcohol or other substances to the point where it affects your behaviour, interactions, or the comfort of others.
+### Professional behaviour
 
-**Reporting Poor Behaviour**  
-If you feel unsafe or uncomfortable at any point, or witness someone being disrespected, please inform an organiser when you can. Reports will be taken seriously, handled with appropriate discretion and properly investigated.
+Festival activities include both networking and recreation. Participants are expected to:
 
-**Accessibility**  
-Sydney Games Festival strives to ensure all events are accessible. If you require accommodations to participate, please reach out to an organiser ahead of time so we can make appropriate arrangements. Participants are also encouraged to take care of their own well-being during events. If you ever feel overwhelmed, please take a break, or reach out to an organiser for support. We are committed to ensuring all participants can fully engage and contribute.
+- Respect other people's boundaries, names and pronouns.
+- Ask before offering advice or feedback, and keep feedback constructive rather than sarcastic, condescending or dismissive.
+- Avoid aggressive self-promotion, advertising, gossip and personal attacks.
+- Not allow alcohol or other substances to make their behaviour unsafe, disruptive or uncomfortable for others.
+- Follow reasonable instructions from event organisers, venue staff and safety contacts.
 
-## **Questions or Concerns**
+### Reporting a concern
 
-If you have any questions, or concerns relating to the Code of Conduct, or any part of Sydney Games Festival , you can notify: **contact@sydneygamesfestival.org**
+If you feel unsafe or uncomfortable, or witness someone being disrespected, report the concern using the process published by the relevant event organiser. You may report something that happened to you or something you witnessed, and you do not need to confront the person involved or have complete evidence before raising a concern.
 
-## **Above All, Have Fun\!**
+If reporting to the organiser would be unsafe or inappropriate, the concern involves an organiser, or the response has been inadequate, use the festival's [contact page]({{ '/contact/' | relative_url }}). Reports will be taken seriously and handled as discreetly as reasonably possible. Retaliation or victimisation for raising or supporting a concern is a breach of this Code.
 
-By following this Code of Conduct and participating in the community, we can ensure that everyone is treated with utmost dignity, while being able to have fun and contribute to the community without judgement.
+If anyone is in immediate danger, contact venue staff or security and call emergency services on **000**.
 
-## For Event Organisers
+The relevant event organiser will normally respond first. Depending on the circumstances, action may range from asking someone to stop their behaviour to removing them from an activity or venue. Serious, repeated, unresolved or festival-wide concerns may be escalated to Sydney Games Festival and may result in conditions on participation, removal from the festival program or exclusion from future festival events. Serious matters may also be referred to venue security, emergency services or another appropriate authority.
 
-Sydney Games Festival expects all organisers to be accountable and to have made their own Code of Conduct for their events. At a bare minimum it’s expected all them keep the following standards in mind:
+### Accessibility and wellbeing
 
-* Respect for others and mindfulness  
-* Supporting inclusivity and respect of individual differences  
-* Zero tolerance for hate speech, discriminatory remarks, violence, or threats both online and offline
+Event organisers are responsible for publishing accessibility information and providing a way to request reasonable adjustments. Advance notice can help organisers make arrangements, but participants may also ask for support during an event. If you feel overwhelmed, please take a break or reach out to an organiser for support.
+
+<h2 id="event-organisers">Requirements for event organisers</h2>
+
+Sydney Games Festival events are independently operated. Each organiser is responsible for the safety and rules of its event and for responding to incidents there.
+
+All participating organisers agree to follow this Code as a minimum standard and to respect Sydney Games Festival decisions about festival participation or exclusion. Organisers may adopt additional event-specific expectations, but they must not contradict or weaken this Code. An organiser may adopt this Code directly rather than creating a separate one.
+
+At a minimum, participating event organisers must:
+
+- Publish or link to this Code and clearly communicate any additional event rules.
+- Provide a clear reporting contact and, where reasonably possible, an alternative if that person is involved in a concern.
+- Brief staff and volunteers on expected behaviour, receiving reports and when to escalate them.
+- Communicate relevant accessibility, venue, age, content and safety information before the event.
+- Respond promptly to safety concerns, manage conflicts of interest and protect reporters and witnesses from retaliation or victimisation.
+- Escalate serious, repeated or unresolved concerns to Sydney Games Festival where it is safe, appropriate and consistent with privacy and legal obligations.
+
+### Events for children and young people
+
+Each organiser decides whether its event admits people under 18. Events that do must clearly communicate age eligibility, supervision requirements, relevant content information, photography arrangements and how a young person can ask for help. Organisers must follow safeguarding practices appropriate to their event and any applicable NSW child-safety and Working With Children Check requirements.
+
+### Questions or concerns
+
+For questions or concerns relating to this Code or any part of Sydney Games Festival, use our [contact page]({{ '/contact/' | relative_url }}) or email **contact@sydneygamesfestival.org**.
+
+By following this Code, we can ensure everyone is treated with dignity while having fun and contributing without judgement.
+
+*Last updated: 17 August 2026.*
