@@ -18,7 +18,7 @@ permalink: /festival-credits/
 
 | Work | Credits |
 | ---: | --- |
-| Planning Committee | [George Mak](https://linktr.ee/dinopoke), [Liezl Ronquillo](https://www.linkedin.com/in/liezlartist), [Ryan Cross](https://games.ryancross.com), Ryan Penning, [Sandra Trinh](https://www.linkedin.com/in/sandra-trinh/) |
+| Planning Committee | [George Mak](https://linktr.ee/dinopoke), [Liezl Ronquillo](https://www.linkedin.com/in/liezlartist), [Ryan Cross](https://games.ryancross.com), Ryan Penning, [Sandra Trinh](https://www.linkedin.com/in/sandra-trinh/), [Matt Cabang](https://www.linkedin.com/in/mattavc/) |
 | Partnerships | Ryan Cross |
 
 ## Marketing & Branding

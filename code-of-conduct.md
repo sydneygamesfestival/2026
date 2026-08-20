@@ -36,6 +36,7 @@ Sydney Games Festival thrives by maintaining an environment of respect and under
 - Unwanted photography or recording, or sharing another person's private information without permission.
 - Sustained disruption of talks, games, performances or other activities.
 - Bringing real weapons or objects—including props—not designed for safe cosplay use that could cause harm.
+- Hate speech, violence, or threats of violence both online and offline
 - Encouraging or enabling any of the above, or retaliating against or victimising someone for raising a concern.
 
 If you are informed that your behaviour is disrespectful, or recognise such behaviour in yourself, please pause, reflect and adjust moving forward.
@@ -66,18 +67,20 @@ Event organisers are responsible for publishing accessibility information and pr
 
 <h2 id="event-organisers">Requirements for event organisers</h2>
 
-Sydney Games Festival events are independently operated. Each organiser is responsible for the safety and rules of its event and for responding to incidents there.
+Sydney Games Festival events are independently operated. Each organiser, in collaboration with their venue, is responsible for the safety and rules of its event and for responding to incidents there.
 
 All participating organisers agree to follow this Code as a minimum standard and to respect Sydney Games Festival decisions about festival participation or exclusion. Organisers may adopt additional event-specific expectations, but they must not contradict or weaken this Code. An organiser may adopt this Code directly rather than creating a separate one.
 
 At a minimum, participating event organisers must:
 
-- Publish or link to this Code and clearly communicate any additional event rules.
+- Publish their own Code or link to this Code and clearly communicate any additional event rules.
 - Provide a clear reporting contact and, where reasonably possible, an alternative if that person is involved in a concern.
 - Brief staff and volunteers on expected behaviour, receiving reports and when to escalate them.
 - Communicate relevant accessibility, venue, age, content and safety information before the event.
 - Respond promptly to safety concerns, manage conflicts of interest and protect reporters and witnesses from retaliation or victimisation.
 - Escalate serious, repeated or unresolved concerns to Sydney Games Festival where it is safe, appropriate and consistent with privacy and legal obligations.
+
+Venue conditions of entry and event-specific ticketing terms may also apply. Venue staff retain authority over admission, security and removal from the venue.
 
 ### Events for children and young people
 
