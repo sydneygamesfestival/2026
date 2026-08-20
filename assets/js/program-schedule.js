@@ -355,13 +355,14 @@
     const startMinutes = parseTime(startTime);
     const endMinutes = parseTime(endTime);
     const organisation = pick(row, headers, 'organisation');
-    const title = pick(row, headers, 'event name') || organisation || 'Untitled event';
+    const presentedBy = pick(row, headers, 'presented by') || organisation;
+    const title = pick(row, headers, 'event name') || presentedBy || 'Untitled event';
     const planningStage = normalise(pick(row, headers, 'stage of planning'));
     const detailedGameTypes = splitList(pick(row, headers, 'type of games'));
 
     return {
       title: title,
-      organisation: organisation,
+      presentedBy: presentedBy,
       published: /^y/.test(normalise(pick(row, headers, 'published'))),
       draftReady: planningStage.startsWith('confirmed') || planningStage.startsWith('announced'),
       description: pickMultiline(row, headers, 'marketing description'),
@@ -510,7 +511,7 @@
       '<header class="schedule-card-header">' +
         '<p class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</p>' +
         '<div class="schedule-card-heading"><h3>' + escapeHtml(event.title) + '</h3>' +
-          (event.organisation ? '<p class="schedule-organisation"><strong>Presented by</strong> ' + escapeHtml(event.organisation) + '</p>' : '') +
+          (event.presentedBy ? '<p class="schedule-organisation"><strong>Presented by</strong> ' + escapeHtml(event.presentedBy) + '</p>' : '') +
         '</div>' +
         '<div class="schedule-card-primary-action">' + ticket + '</div>' +
       '</header>' +
