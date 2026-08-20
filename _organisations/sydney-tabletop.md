@@ -6,10 +6,12 @@ order: 4
 people:
   - name: Ryan Cross
     url: https://games.ryancross.com
+  - name: Thomas James
+    url: 
 groups:
   - contributors
 logo: /assets/images/organisations/sydney-tabletop.png
-website: https://www.eventbrite.com.au/e/tabletop-games-for-youth-local-games-showcase-tickets-1980523280446
+website: https://sydneytabletop.github.io/
 link_label: See Sydney Tabletop
 summary: Connecting local tabletop creators and players.
 ---
