@@ -4,12 +4,14 @@ short_name: UNSW Game Makers
 slug: unsw-game-makers
 order: 9
 people:
-  - name: Martin
-  - name: Bradley
+  - name: Martin Zlatinov
+    url: #
+  - name: Bradley Lin
+    url: #
 groups:
   - events
 logo: /assets/images/organisations/unsw-game-makers.jpg
-website: https://events.humanitix.com/host/unswgmsoc
+website: https://www.unswgmsoc.org/
 link_label: Visit UNSW Game Makers
 summary: A student community learning, making and sharing games.
 ---
