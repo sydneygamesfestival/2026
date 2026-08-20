@@ -355,7 +355,8 @@
     const startMinutes = parseTime(startTime);
     const endMinutes = parseTime(endTime);
     const organisation = pick(row, headers, 'organisation');
-    const presentedBy = pick(row, headers, 'presented by') || organisation;
+    // const presentedBy = pick(row, headers, 'presented by') || organisation;
+    const presentedBy = pick(row, headers, 'presented by');
     const title = pick(row, headers, 'event name') || presentedBy || 'Untitled event';
     const planningStage = normalise(pick(row, headers, 'stage of planning'));
     const detailedGameTypes = splitList(pick(row, headers, 'type of games'));
