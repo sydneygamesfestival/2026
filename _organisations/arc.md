@@ -5,6 +5,7 @@ slug: arc
 order: 5
 people:
   - name: Nathan Corr
+    url: #
 groups:
   - contributors
 logo: /assets/images/organisations/arc-rpg.png
