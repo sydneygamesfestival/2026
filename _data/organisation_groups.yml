@@ -35,16 +35,16 @@ groups:
       link: /get-involved/
       link_label: Get involved
 
-  - id: supporters
-    title: Festival Supporters
-    description: Organisations supporting the festival and its wider community.
-    prominence: supporting
-    sample:
-      title: Sample organisation
-      logo: /assets/images/organisations/sample-organisation.svg
-      description: An example of how a festival supporter will appear in this section.
-    placeholder:
-      title: This could be you
-      description: Help support Sydney Games Festival and its community.
-      link: /get-involved/
-      link_label: Support the festival
+  # - id: supporters
+  #   title: Festival Supporters
+  #   description: Organisations supporting the festival and its wider community.
+  #   prominence: supporting
+  #   sample:
+  #     title: Sample organisation
+  #     logo: /assets/images/organisations/sample-organisation.svg
+  #     description: An example of how a festival supporter will appear in this section.
+  #   placeholder:
+  #     title: This could be you
+  #     description: Help support Sydney Games Festival and its community.
+  #     link: /get-involved/
+  #     link_label: Support the festival
