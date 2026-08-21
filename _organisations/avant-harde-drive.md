@@ -4,7 +4,8 @@ short_name: Avant-Harde Drive
 slug: avant-harde-drive
 order: 8
 people:
-  - name: Sally
+  - name: Sally Coleman
+    url: https://www.bigsand.band/
 groups:
   - events
 logo: /assets/images/organisations/avant-harde-drive.png
