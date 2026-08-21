@@ -377,7 +377,7 @@
       ),
       location: pick(row, headers, 'where do you plan'),
       ticketUrl: cleanUrl(pick(row, headers, 'what url should we direct')),
-      thumbnail: cleanImageUrl(pick(row, headers, 'url to hero thumbnail')),
+      thumbnail: cleanImageUrl(pick(row, headers, 'manual url to hero')),
       startTime: startTime,
       endTime: endTime,
       startMinutes: startMinutes,
@@ -482,9 +482,7 @@
   }
 
   function imageHtml(event) {
-    if (!event.thumbnail) {
-      return '<div class="schedule-card-image schedule-card-image-empty"><span>Image to come</span></div>';
-    }
+    if (!event.thumbnail) return '';
     return '<div class="schedule-card-image"><img src="' + escapeHtml(event.thumbnail) + '" alt="' +
       escapeHtml(event.title + ' event artwork') + '"></div>';
   }
@@ -501,14 +499,14 @@
     return event.ticketUrl
       ? '<a class="schedule-ticket" href="' + escapeHtml(event.ticketUrl) +
         '" target="_blank" rel="noopener"><span>Event details</span><span aria-hidden="true">→</span></a>'
-      : '<span class="schedule-ticket schedule-ticket-unavailable"><span>Details to come</span></span>';
+      : '<span class="schedule-ticket schedule-ticket-unavailable"><span>Details TBA</span></span>';
   }
 
   function cardHtml(event) {
     const ticket = ticketHtml(event);
     const audiences = audienceHtml(event);
 
-    return '<article class="schedule-card">' +
+    return '<article class="schedule-card' + (event.thumbnail ? '' : ' schedule-card-no-image') + '">' +
       '<header class="schedule-card-header">' +
         '<p class="schedule-card-time">' + escapeHtml(eventDateTime(event)) + '</p>' +
         '<div class="schedule-card-heading"><h3>' + escapeHtml(event.title) + '</h3>' +
@@ -596,8 +594,10 @@
 
     elements.cards.querySelectorAll('.schedule-card-image img').forEach(function (image) {
       image.addEventListener('error', function () {
-        image.parentElement.classList.add('schedule-card-image-empty');
-        image.parentElement.innerHTML = '<span>Image to come</span>';
+        const imageWrapper = image.parentElement;
+        const card = image.closest('.schedule-card');
+        if (card) card.classList.add('schedule-card-no-image');
+        imageWrapper.remove();
       }, { once: true });
     });
   }
