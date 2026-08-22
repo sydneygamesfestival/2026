@@ -11,6 +11,7 @@ description: The organisations helping bring Sydney Games Festival to life.
     <p class="eyebrow">Festival community</p>
     <h1>Organisations</h1>
     <p class="lede">Meet the community groups creating, supporting and hosting events across Sydney Games Festival.</p>
+    <p><a class="button" href="{{ '/festival-credits/' | relative_url }}">View Personal Credits</a></p>
   </div>
 </section>
 

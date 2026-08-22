@@ -4,8 +4,8 @@ short_name: Sydney Game Audio
 slug: sydney-game-audio
 order: 11
 people:
-  - name: Morgan
-    url: #
+  - name: Morgan Ainsley
+    url: https://linktr.ee/morganainsleymusic
 groups:
   - events
 logo: /assets/images/organisations/sydney-game-audio.svg
