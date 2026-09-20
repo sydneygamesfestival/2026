@@ -78,14 +78,16 @@ program_schedule: true
   </div>
 </section>
 
-<section class="colour-band orange-band" aria-label="Festival values">
+<!-- <hr style="width:95%"/> -->
+
+<!-- <section class="colour-band orange-band" aria-label="Festival values">
   <div class="marquee">
     <div class="marquee-track">
       <span class="marquee-group">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
       <span class="marquee-group" aria-hidden="true">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="content-section schedule-section" id="full-schedule" aria-labelledby="schedule-heading">
   <div class="container">
