@@ -31,13 +31,6 @@
 <section class="hero {{ hero_variant }} hero-theme-{{ page.hero_theme | default: 'blue' }}"
   data-hero-icons="{{ icon_controller | relative_url }}|{{ icon_arrow | relative_url }}|{{ icon_fireworks | relative_url }}|{{ icon_cross | relative_url }}|{{ icon_player | relative_url }}|{{ icon_point | relative_url }}">
   <div class="container hero-inner">
-    <!-- <img class="hero-icon hero-icon-one" data-hero-icon data-icon-index="0" src="{{ icon_controller | relative_url }}" alt="" aria-hidden="true">
-    <img class="hero-icon hero-icon-two" data-hero-icon data-icon-index="1" src="{{ icon_arrow | relative_url }}" alt="" aria-hidden="true">
-    <img class="hero-icon hero-icon-three" data-hero-icon data-icon-index="2" src="{{ icon_fireworks | relative_url }}" alt="" aria-hidden="true">
-    <img class="hero-icon hero-icon-four" data-hero-icon data-icon-index="3" src="{{ icon_cross | relative_url }}" alt="" aria-hidden="true">
-    <img class="hero-icon hero-icon-five" data-hero-icon data-icon-index="4" src="{{ icon_player | relative_url }}" alt="" aria-hidden="true">
-    <img class="hero-icon hero-icon-six" data-hero-icon data-icon-index="5" src="{{ icon_point | relative_url }}" alt="" aria-hidden="true"> -->
-
     <div class="hero-copy">
       {% if page.hero_eyebrow %}<p class="eyebrow hero-eyebrow">{{ page.hero_eyebrow }}</p>{% endif %}
       {% if page.hero_logo %}
