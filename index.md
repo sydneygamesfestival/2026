@@ -8,6 +8,7 @@ hero_title: Sydney Games Festival
 hero_logo: /assets/images/sgf-logo-lockup.png
 hero_logo_alt: Sydney Games Festival
 social_image: /assets/images/home-hero.jpg
+countdown: true
 ---
 
 {% include hero.html %}
@@ -32,21 +33,25 @@ social_image: /assets/images/home-hero.jpg
   </div>
 </section>
 
-<section class="colour-band blue-band" aria-label="Festival values">
-  <div class="marquee">
-    <div class="marquee-track">
-      <span class="marquee-group">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
-      <span class="marquee-group" aria-hidden="true">Fun · Play · Vibes · Jams · Community · Creativity · Innovation · For everyone · </span>
+<section class="colour-band blue-band countdown-band" aria-labelledby="countdown-heading">
+  <div class="container countdown" data-countdown="2026-10-12T00:00:00+11:00" data-countdown-end="2026-10-19T00:00:00+11:00">
+    <p class="eyebrow" id="countdown-heading">Countdown to Sydney Games Festival</p>
+    <div class="countdown-values" role="timer" aria-label="Time until Sydney Games Festival begins">
+      <div class="countdown-unit"><strong data-countdown-days>—</strong><span>Days</span></div>
+      <div class="countdown-unit"><strong data-countdown-hours>—</strong><span>Hours</span></div>
+      <div class="countdown-unit"><strong data-countdown-minutes>—</strong><span>Minutes</span></div>
+      <div class="countdown-unit"><strong data-countdown-seconds>—</strong><span>Seconds</span></div>
     </div>
+    <p class="countdown-date" data-countdown-message>Starts Monday 12 October 2026 in Sydney</p>
   </div>
 </section>
 
 <section class="content-section">
   <div class="container text-centre">
     <p class="eyebrow">Program</p>
-    <h2>The 2026 festival program is taking shape</h2>
-    <p>Events, venues and times are being added as they are confirmed. Explore the current program or join the mailing list for updates.</p>
-    <a class="button" href="{{ '/program/' | relative_url }}">See the current program</a>
+    <h2>The 2026 festival program is live</h2>
+    <p>The schedule has launched. Explore the events announced so far, with more details added as they are confirmed.</p>
+    <a class="button" href="{{ '/program/' | relative_url }}">Explore the program</a>
     <a class="button" href="{{ '/mailing-list/' | relative_url }}">Get program updates</a> 
     <a class="button" href="{{ '/register-your-event/' | relative_url }}">Register your event</a> 
   </div>

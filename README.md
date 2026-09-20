@@ -9,8 +9,8 @@ A small Jekyll site intended for GitHub Pages.
 3. Start the site: `bundle exec jekyll serve`
 4. Open the address printed by Jekyll (normally `http://127.0.0.1:4000`).
 
-The site deliberately has no countdown timer at this stage. Page artwork and
-icons in `assets/` are copied unchanged from the supplied export.
+The home page includes a live countdown to the festival start. Page artwork in
+`assets/` is copied from the supplied export.
 
 ## FAQs
 

@@ -711,10 +711,10 @@
     .then(function (result) {
       state.events = result.events;
       state.preview = result.preview;
-      const firstDayWithEvents = festivalDays.find(function (day) {
-        return state.events.some(function (event) { return event.dayIsos.includes(day.iso); });
+      const firstScopeWithEvents = scopes().find(function (scope) {
+        return eventsForDay(scope.key).length > 0;
       });
-      state.selectedDay = firstDayWithEvents ? firstDayWithEvents.iso : festivalDays[0].iso;
+      state.selectedDay = firstScopeWithEvents ? firstScopeWithEvents.key : festivalDays[0].iso;
       render();
       scheduleEventImagePreload();
     })
