@@ -27,7 +27,7 @@ permalink: /festival-credits/
 | ---: | --- |
 | Logo | Adam Younis, with input from a few others |
 | Graphics | [Liezl Ronquillo](https://www.linkedin.com/in/liezlartist) (animating icons) |
-| Website | Designed by Ryan Penning; (re)Built by Ryan Cross|
+| Website | Designed by Ryan Penning; (re)Built by Ryan Cross ([source](https://github.com/sydneygamesfestival/2026))|
 | Social media | [Sandra Trinh](https://www.linkedin.com/in/sandra-trinh/), with support from [Esthefania Morantes](https://au.linkedin.com/in/esthefaniamorantes/), [Marrel Bito](https://www.linkedin.com/in/marell-bito-a28978247) and [Ryan Cross](https://games.ryancross.com) |
 
 ## Volunteers
