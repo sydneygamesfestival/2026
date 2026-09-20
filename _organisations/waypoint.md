@@ -10,6 +10,7 @@ people:
     url: https://www.linkedin.com/in/liezlartist
 groups:
   - contributors
+  - events
 logo: /assets/images/organisations/waypoint.png
 website: https://linktr.ee/waypointevents
 link_label: Visit Waypoint

@@ -7,7 +7,7 @@ people:
   - name: Nathan Corr
     url: #
 groups:
-  - contributors
+  - events
 logo: /assets/images/organisations/arc-rpg.png
 website: https://www.arcrpg.org/
 link_label: Visit ARC

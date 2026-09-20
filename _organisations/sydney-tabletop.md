@@ -10,6 +10,7 @@ people:
     url: 
 groups:
   - contributors
+  - events
 logo: /assets/images/organisations/sydney-tabletop.png
 website: https://sydneytabletop.github.io/
 link_label: See Sydney Tabletop
