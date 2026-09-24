@@ -29,6 +29,16 @@ test('overview days and featured events link to detailed program dates', () => {
 
 async function loadSchedule(rows, hash = '') {
   const elements = new Map();
+  const overviewCounts = [];
+  for (let day = 12; day <= 18; day += 1) {
+    for (let copy = 0; copy < 2; copy += 1) {
+      overviewCounts.push({
+        dataset: { scheduleCount: '2026-10-' + day },
+        hidden: true,
+        textContent: '',
+      });
+    }
+  }
   const schedule = {
     dataset: { eventsUrl: '/events.csv', notifyUrl: '/mailing-list/' },
     querySelector(selector) {
@@ -45,7 +55,9 @@ async function loadSchedule(rows, hash = '') {
   runInNewContext(script, {
     document: {
       querySelector() { return schedule; },
-      querySelectorAll() { return []; },
+      querySelectorAll(selector) {
+        return selector === '[data-schedule-count]' ? overviewCounts : [];
+      },
     },
     window: { location: { search: '', hash }, addEventListener() {} },
     URLSearchParams,
@@ -57,8 +69,32 @@ async function loadSchedule(rows, hash = '') {
   });
   await new Promise(setImmediate);
   assert.deepEqual(errors, []);
+  elements.overviewCounts = overviewCounts;
   return elements;
 }
+
+test('shows each day’s published event count in the overview', async () => {
+  const elements = await loadSchedule([
+    'Monday event,2026-10-12,Y',
+    'Tuesday morning,2026-10-13,Y',
+    'Tuesday evening,2026-10-13,Y',
+    'Hidden Wednesday event,2026-10-14,N',
+  ]);
+  const countFor = (iso) => elements.overviewCounts
+    .filter((element) => element.dataset.scheduleCount === iso)
+    .map((element) => element.textContent);
+
+  assert.deepEqual(countFor('2026-10-12'), ['1 event', '1 event']);
+  assert.deepEqual(countFor('2026-10-13'), ['2 events', '2 events']);
+  assert.deepEqual(countFor('2026-10-14'), ['0 events', '0 events']);
+  assert.ok(elements.overviewCounts.every((element) => element.hidden === false));
+  assert.ok(elements.get('#schedule-days').innerHTML.includes(
+    '12 Oct <span class="schedule-day-count">(1)</span>'));
+  assert.ok(elements.get('#schedule-days').innerHTML.includes(
+    '13 Oct <span class="schedule-day-count">(2)</span>'));
+  assert.ok(elements.get('#schedule-day-select').innerHTML.includes(
+    '13 Oct — Tue (2)'));
+});
 
 test('opens a directly linked festival day', async () => {
   const elements = await loadSchedule(

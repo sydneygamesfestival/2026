@@ -437,6 +437,16 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   line-height: 1;
 }
 
+.program-week .program-week-count {
+  margin-top: 7px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.program-week-count[hidden] { display: none; }
+
 .program-week td {
   height: 145px;
   padding: 10px;
@@ -540,6 +550,15 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.schedule-day .schedule-day-count {
+  display: inline;
+  margin: 0 0 0 0.25em;
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
 }
 
 .schedule-day:hover,
@@ -1725,11 +1744,14 @@ summary { cursor: pointer; font-weight: 700; }
     place-items: center;
   }
 
+  .program-week-mobile-day .program-week-count { margin-top: 3px; }
+
   .program-week td:nth-child(3n + 2) .program-week-mobile-day { background: var(--coral); }
   .program-week td:nth-child(3n) .program-week-mobile-day { background: var(--orange); }
   .program-week-mobile-day:hover,
   .program-week-mobile-day:focus-visible { text-decoration: underline; }
   .program-week td + td { border-top: 0; }
+  .program-week td:last-child { border-right: 2px solid var(--ink); }
 
   .program-week-empty { min-height: 70px; }
 

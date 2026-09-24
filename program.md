@@ -45,24 +45,24 @@ program_schedule: true
         <caption class="visually-hidden">Featured Sydney Games Festival events from 12 to 18 October 2026</caption>
         <thead>
           <tr>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-12"><span>Mon</span><strong>12</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-13"><span>Tue</span><strong>13</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-14"><span>Wed</span><strong>14</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-15"><span>Thu</span><strong>15</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-16"><span>Fri</span><strong>16</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-17"><span>Sat</span><strong>17</strong><span>Oct</span></a></th>
-            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-18"><span>Sun</span><strong>18</strong><span>Oct</span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-12"><span>Mon</span><strong>12</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-12" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-13"><span>Tue</span><strong>13</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-13" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-14"><span>Wed</span><strong>14</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-14" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-15"><span>Thu</span><strong>15</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-15" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-16"><span>Fri</span><strong>16</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-16" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-17"><span>Sat</span><strong>17</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-17" hidden></span></a></th>
+            <th scope="col"><a class="program-week-day-link" href="#program-2026-10-18"><span>Sun</span><strong>18</strong><span>Oct</span><span class="program-week-count" data-schedule-count="2026-10-18" hidden></span></a></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="program-week-day-empty" data-date="Mon 12 Oct"><a class="program-week-mobile-day" href="#program-2026-10-12">Mon 12 Oct</a><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
-            <td data-date="Tue 13 Oct"><a class="program-week-mobile-day" href="#program-2026-10-13">Tue 13 Oct</a><a class="program-week-event program-week-event-long" href="#program-2026-10-13" data-schedule-date="2026-10-13">Constellations</a></td>
-            <td data-date="Wed 14 Oct"><a class="program-week-mobile-day" href="#program-2026-10-14">Wed 14 Oct</a><a class="program-week-event" href="#program-2026-10-14" data-schedule-date="2026-10-14">Board Game Dev Night</a></td>
-            <td data-date="Thu 15 Oct"><a class="program-week-mobile-day" href="#program-2026-10-15">Thu 15 Oct</a><a class="program-week-event" href="#program-2026-10-15" data-schedule-date="2026-10-15">Extra Lives Concert</a></td>
-            <td data-date="Fri 16 Oct"><a class="program-week-mobile-day" href="#program-2026-10-16">Fri 16 Oct</a><a class="program-week-event" href="#program-2026-10-16" data-schedule-date="2026-10-16">Industry Talks</a></td>
-            <td data-date="Sat 17 Oct"><a class="program-week-mobile-day" href="#program-2026-10-17">Sat 17 Oct</a><a class="program-week-event" href="#program-2026-10-17" data-schedule-date="2026-10-17">All Play Day</a></td>
-            <td data-date="Sun 18 Oct"><a class="program-week-mobile-day" href="#program-2026-10-18">Sun 18 Oct</a><a class="program-week-event" href="#program-2026-10-18" data-schedule-date="2026-10-18">Making Waves</a></td>
+            <td class="program-week-day-empty" data-date="Mon 12 Oct"><a class="program-week-mobile-day" href="#program-2026-10-12"><span>Mon 12 Oct</span><span class="program-week-count" data-schedule-count="2026-10-12" hidden></span></a><span class="program-week-empty" aria-label="No featured event announced">—</span></td>
+            <td data-date="Tue 13 Oct"><a class="program-week-mobile-day" href="#program-2026-10-13"><span>Tue 13 Oct</span><span class="program-week-count" data-schedule-count="2026-10-13" hidden></span></a><a class="program-week-event program-week-event-long" href="#program-2026-10-13" data-schedule-date="2026-10-13">Constellations</a></td>
+            <td data-date="Wed 14 Oct"><a class="program-week-mobile-day" href="#program-2026-10-14"><span>Wed 14 Oct</span><span class="program-week-count" data-schedule-count="2026-10-14" hidden></span></a><a class="program-week-event" href="#program-2026-10-14" data-schedule-date="2026-10-14">Board Game Dev Night</a></td>
+            <td data-date="Thu 15 Oct"><a class="program-week-mobile-day" href="#program-2026-10-15"><span>Thu 15 Oct</span><span class="program-week-count" data-schedule-count="2026-10-15" hidden></span></a><a class="program-week-event" href="#program-2026-10-15" data-schedule-date="2026-10-15">Extra Lives Concert</a></td>
+            <td data-date="Fri 16 Oct"><a class="program-week-mobile-day" href="#program-2026-10-16"><span>Fri 16 Oct</span><span class="program-week-count" data-schedule-count="2026-10-16" hidden></span></a><a class="program-week-event" href="#program-2026-10-16" data-schedule-date="2026-10-16">Industry Talks</a></td>
+            <td data-date="Sat 17 Oct"><a class="program-week-mobile-day" href="#program-2026-10-17"><span>Sat 17 Oct</span><span class="program-week-count" data-schedule-count="2026-10-17" hidden></span></a><a class="program-week-event" href="#program-2026-10-17" data-schedule-date="2026-10-17">All Play Day</a></td>
+            <td data-date="Sun 18 Oct"><a class="program-week-mobile-day" href="#program-2026-10-18"><span>Sun 18 Oct</span><span class="program-week-count" data-schedule-count="2026-10-18" hidden></span></a><a class="program-week-event" href="#program-2026-10-18" data-schedule-date="2026-10-18">Making Waves</a></td>
           </tr>
         </tbody>
       </table>

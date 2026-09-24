@@ -452,6 +452,14 @@
     return state.events.filter(function (event) { return event.region === key; });
   }
 
+  function renderOverviewCounts() {
+    document.querySelectorAll('[data-schedule-count]').forEach(function (element) {
+      const count = eventsForDay(element.dataset.scheduleCount).length;
+      element.textContent = count + (count === 1 ? ' event' : ' events');
+      element.hidden = false;
+    });
+  }
+
   function audienceBuckets(event) {
     return new Set(event.audiences.map(function (audience) {
       return audienceMap[audience.toLowerCase().trim()];
@@ -623,15 +631,17 @@
   function renderDays() {
     elements.days.innerHTML = scopes().map(function (scope) {
       const active = scope.key === state.selectedDay;
+      const count = eventsForDay(scope.key).length;
       return '<a class="schedule-day' + (active ? ' active' : '') + '" href="#' +
         escapeHtml(dayFragment(scope.key)) + '" data-day="' + escapeHtml(scope.key) + '"' +
         (active ? ' aria-current="date"' : '') + '><strong>' + escapeHtml(scope.date) +
-        '</strong><span>' + escapeHtml(scope.day) + '</span></a>';
+        ' <span class="schedule-day-count">(' + count + ')</span></strong><span>' +
+        escapeHtml(scope.day) + '</span></a>';
     }).join('');
 
     elements.daySelect.innerHTML = scopes().map(function (scope) {
       return '<option value="' + escapeHtml(scope.key) + '"' + (scope.key === state.selectedDay ? ' selected' : '') + '>' +
-        escapeHtml(scope.date + ' — ' + scope.day) + '</option>';
+        escapeHtml(scope.date + ' — ' + scope.day + ' (' + eventsForDay(scope.key).length + ')') + '</option>';
     }).join('');
   }
 
@@ -735,6 +745,7 @@
       });
       state.selectedDay = dayFromHash() ||
         (firstScopeWithEvents ? firstScopeWithEvents.key : festivalDays[0].iso);
+      renderOverviewCounts();
       render();
       scheduleEventImagePreload();
     })
