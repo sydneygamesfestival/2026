@@ -433,6 +433,18 @@
       .concat([extraScopes.after]);
   }
 
+  function dayFragment(day) {
+    return 'program-' + day;
+  }
+
+  function dayFromHash() {
+    const hash = window.location.hash.replace(/^#/, '');
+    const scope = scopes().find(function (candidate) {
+      return dayFragment(candidate.key) === hash;
+    });
+    return scope ? scope.key : '';
+  }
+
   function eventsForDay(key) {
     if (festivalDays.some(function (day) { return day.iso === key; })) {
       return state.events.filter(function (event) { return event.dayIsos.includes(key); });
@@ -611,9 +623,10 @@
   function renderDays() {
     elements.days.innerHTML = scopes().map(function (scope) {
       const active = scope.key === state.selectedDay;
-      return '<button class="schedule-day' + (active ? ' active' : '') + '" type="button" data-day="' +
-        escapeHtml(scope.key) + '" aria-pressed="' + active + '"><strong>' + escapeHtml(scope.date) +
-        '</strong><span>' + escapeHtml(scope.day) + '</span></button>';
+      return '<a class="schedule-day' + (active ? ' active' : '') + '" href="#' +
+        escapeHtml(dayFragment(scope.key)) + '" data-day="' + escapeHtml(scope.key) + '"' +
+        (active ? ' aria-current="date"' : '') + '><strong>' + escapeHtml(scope.date) +
+        '</strong><span>' + escapeHtml(scope.day) + '</span></a>';
     }).join('');
 
     elements.daySelect.innerHTML = scopes().map(function (scope) {
@@ -684,6 +697,7 @@
 
   elements.daySelect.addEventListener('change', function (event) {
     selectDay(event.target.value);
+    window.location.hash = dayFragment(event.target.value);
   });
 
   elements.filters.addEventListener('click', function (event) {
@@ -707,6 +721,11 @@
     });
   });
 
+  window.addEventListener('hashchange', function () {
+    const day = dayFromHash();
+    if (day) selectDay(day);
+  });
+
   loadEvents()
     .then(function (result) {
       state.events = result.events;
@@ -714,7 +733,8 @@
       const firstScopeWithEvents = scopes().find(function (scope) {
         return eventsForDay(scope.key).length > 0;
       });
-      state.selectedDay = firstScopeWithEvents ? firstScopeWithEvents.key : festivalDays[0].iso;
+      state.selectedDay = dayFromHash() ||
+        (firstScopeWithEvents ? firstScopeWithEvents.key : festivalDays[0].iso);
       render();
       scheduleEventImagePreload();
     })

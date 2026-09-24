@@ -412,6 +412,17 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 .program-week th:nth-child(3n + 2) { background: var(--coral); }
 .program-week th:nth-child(3n) { background: var(--orange); }
 
+.program-week-day-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.program-week-day-link:hover,
+.program-week-day-link:focus-visible { text-decoration: underline; }
+
+.program-week-mobile-day { display: none; }
+
 .program-week th span,
 .program-week th strong { display: block; }
 
@@ -472,8 +483,15 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 
 /* Full program schedule */
 .schedule-section {
+  position: relative;
   scroll-margin-top: 24px;
   background: #fff4e8;
+}
+
+.schedule-day-anchor {
+  position: absolute;
+  top: 0;
+  scroll-margin-top: 24px;
 }
 
 .schedule-intro { margin-bottom: 44px; }
@@ -494,6 +512,7 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 }
 
 .schedule-day {
+  display: block;
   padding: 8px 9px;
   color: var(--orange);
   background: transparent;
@@ -501,6 +520,7 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   border-left: 4px solid transparent;
   font-family: var(--font-body);
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -1672,16 +1692,7 @@ summary { cursor: pointer; font-weight: 700; }
     min-width: 0;
   }
 
-  .program-week thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
+  .program-week thead { display: none; }
 
   .program-week tbody,
   .program-week tr {
@@ -1699,7 +1710,7 @@ summary { cursor: pointer; font-weight: 700; }
     text-align: left;
   }
 
-  .program-week td::before {
+  .program-week-mobile-day {
     display: grid;
     min-height: 70px;
     padding: 10px;
@@ -1709,13 +1720,15 @@ summary { cursor: pointer; font-weight: 700; }
     font-weight: 700;
     letter-spacing: 0.04em;
     text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
-    content: attr(data-date);
     place-items: center;
   }
 
-  .program-week td:nth-child(3n + 2)::before { background: var(--coral); }
-  .program-week td:nth-child(3n)::before { background: var(--orange); }
+  .program-week td:nth-child(3n + 2) .program-week-mobile-day { background: var(--coral); }
+  .program-week td:nth-child(3n) .program-week-mobile-day { background: var(--orange); }
+  .program-week-mobile-day:hover,
+  .program-week-mobile-day:focus-visible { text-decoration: underline; }
   .program-week td + td { border-top: 0; }
 
   .program-week-empty { min-height: 70px; }
