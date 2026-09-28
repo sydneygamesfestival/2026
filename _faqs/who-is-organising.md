@@ -4,4 +4,4 @@ order: 30
 featured: true
 ---
 
-Sydney Games Festival is organised by an event committee made up of the organisers behind the festival's events. Hosts and committee members will be announced as events are revealed over the coming months.
+Sydney Games Festival is coordinated by people from Sydney's games communities. Participating organisations run their own events. Meet the [organisations]({{ '/organisations/' | relative_url }}) involved and the people named in the [festival credits]({{ '/festival-credits/' | relative_url }}).

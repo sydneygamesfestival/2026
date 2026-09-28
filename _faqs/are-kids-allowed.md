@@ -4,4 +4,4 @@ order: 40
 featured: true
 ---
 
-When event pages are live, please visit the relevant page for any restrictions. We believe games are for everyone; if an event is for people aged 18 or over, this will be clear on its event page.
+Some events may welcome children and young people, while others may have age or supervision requirements. Check the organiser's event details before booking. If the requirements are unclear, contact the organiser. The audience filters in the [program]({{ '/program/' | relative_url }}) are not age ratings.

@@ -4,4 +4,4 @@ order: 80
 featured: false
 ---
 
-Each event organiser has its own process. Some use their own selection process and some use application forms. We recommend reaching out to us or the individual organisations to contribute.
+Each event organiser manages its own speakers, showcases and applications. Follow the **Event details** link on an event in the [program]({{ '/program/' | relative_url }}) to look for those opportunities and the process, or [contact the festival team]({{ '/contact/' | relative_url }}) if you are unsure whom to approach.

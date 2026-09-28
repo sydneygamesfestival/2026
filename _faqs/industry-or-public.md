@@ -4,4 +4,4 @@ order: 70
 featured: false
 ---
 
-Both. Some events will be marked as industry events, but the goal is for all events to be enjoyable and interesting for people across the industry and the general public.
+Both! The festival [program]({{ '/program/' | relative_url }}) includes events for players, makers and learners. Our goal is to include everyone who loves games of any type! Use the audience filters to find events that interest you, then check each organiser's event details for any entry requirements.
