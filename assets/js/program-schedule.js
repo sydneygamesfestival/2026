@@ -101,6 +101,14 @@
     return /^(?:y|yes|true|1)$/.test(normalise(value));
   }
 
+  function featuredOrder(value) {
+    const marker = cleanText(value);
+    if (/^[1-9]\d*$/.test(marker)) {
+      return { group: 0, number: Number(marker) };
+    }
+    return { group: flagEnabled(value) ? 1 : 2, number: 0 };
+  }
+
   function cleanMultilineText(value) {
     return String(value == null ? '' : value)
       .replace(/\r\n?/g, '\n')
@@ -389,7 +397,7 @@
       title: title,
       presentedBy: presentedBy,
       published: flagEnabled(pick(row, headers, 'published')),
-      featured: flagEnabled(pick(row, headers, 'featured')),
+      featuredOrder: featuredOrder(pick(row, headers, 'featured')),
       draftReady: planningStage.startsWith('confirmed') || planningStage.startsWith('announced'),
       description: pickMultiline(row, headers, 'marketing description'),
       gameKind: gameKind(row, headers, detailedGameTypes),
@@ -502,7 +510,12 @@
   }
 
   function compareEvents(first, second) {
-    if (first.featured !== second.featured) return first.featured ? -1 : 1;
+    if (first.featuredOrder.group !== second.featuredOrder.group) {
+      return first.featuredOrder.group - second.featuredOrder.group;
+    }
+    if (first.featuredOrder.number !== second.featuredOrder.number) {
+      return first.featuredOrder.number - second.featuredOrder.number;
+    }
     return (first.startMinutes == null ? Infinity : first.startMinutes) -
       (second.startMinutes == null ? Infinity : second.startMinutes);
   }

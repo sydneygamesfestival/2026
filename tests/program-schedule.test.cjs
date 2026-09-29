@@ -171,6 +171,28 @@ test('shows each day’s published event count in the overview', async () => {
     '13 Oct — Tue (2)'));
 });
 
+test('orders detailed events by featured priority, then start time', async () => {
+  const elements = await loadSchedule([
+    'Regular morning,2026-10-12,Y,,8:00 AM',
+    'Featured late,2026-10-12,Y,Y,6:00 PM',
+    'Fourth,2026-10-12,Y,4,7:00 AM',
+    'Second,2026-10-12,Y,2,10:00 AM',
+    'First,2026-10-12,Y,1,9:00 PM',
+    'Featured early,2026-10-12,Y,Y,10:00 AM',
+    'Third,2026-10-12,Y,3,8:00 PM',
+    'Regular afternoon,2026-10-12,Y,N,4:00 PM',
+  ], '', 'Event Name,Specific Date,Published,Featured,Start Time');
+  const titles = Array.from(
+    elements.get('#schedule-cards').innerHTML.matchAll(/class="schedule-card-heading"><h3>([^<]+)<\/h3>/g),
+    (match) => match[1]
+  );
+
+  assert.deepEqual(titles, [
+    'First', 'Second', 'Third', 'Fourth', 'Featured early', 'Featured late',
+    'Regular morning', 'Regular afternoon',
+  ]);
+});
+
 test('opens a directly linked festival day', async () => {
   const elements = await loadSchedule(
     ['Festival event,2026-10-13,Y', 'Wednesday event,2026-10-14,Y'],
