@@ -17,17 +17,15 @@ test('overview days and featured events link to detailed program dates', () => {
       'class="program-week-mobile-day" href="#program-' + iso + '"'
     ));
 
-    if (day > 12) {
-      assert.match(
-        programPage,
-        new RegExp('class="program-week-event[^\"]*" href="#program-' + iso +
-          '" data-schedule-date="' + iso + '"')
-      );
-    }
+    assert.match(
+      programPage,
+      new RegExp('class="program-week-event[^\"]*" href="#program-' + iso +
+        '" data-schedule-date="' + iso + '"')
+    );
   }
 });
 
-async function loadSchedule(rows, hash = '') {
+async function loadSchedule(rows, hash = '', headers = 'Event Name,Specific Date,Published') {
   const elements = new Map();
   const overviewCounts = [];
   for (let day = 12; day <= 18; day += 1) {
@@ -44,7 +42,8 @@ async function loadSchedule(rows, hash = '') {
     querySelector(selector) {
       if (!elements.has(selector)) {
         elements.set(selector, {
-          addEventListener() {},
+          listeners: {},
+          addEventListener(type, listener) { this.listeners[type] = listener; },
           querySelectorAll() { return []; },
         });
       }
@@ -64,7 +63,7 @@ async function loadSchedule(rows, hash = '') {
     console: { error(...args) { errors.push(args); } },
     fetch: async () => ({
       ok: true,
-      text: async () => ['Event Name,Specific Date,Published', ...rows].join('\n'),
+      text: async () => [headers, ...rows].join('\n'),
     }),
   });
   await new Promise(setImmediate);
@@ -72,6 +71,77 @@ async function loadSchedule(rows, hash = '') {
   elements.overviewCounts = overviewCounts;
   return elements;
 }
+
+test('game medium and audience filters work together', async () => {
+  const elements = await loadSchedule([
+    'Digital public,2026-10-12,Y,Screen (Digital),General Public',
+    'Digital student,2026-10-12,Y,Screen (Digital),Students',
+    'Tabletop student,2026-10-12,Y,Tabletop & Live Play (Non-Digital),Students',
+    'Hybrid public,2026-10-12,Y,Hybrid,General Public',
+    'Hybrid student,2026-10-12,Y,Hybrid,Students',
+    'All student,2026-10-12,Y,All,Students',
+    'Other public,2026-10-12,Y,Other,General Public',
+  ], '', 'Event Name,Specific Date,Published,Medium of Games,Type of Audience');
+  const cards = () => elements.get('#schedule-cards').innerHTML;
+  const click = (selector, attribute, value) => {
+    elements.get(selector).listeners.click({
+      target: { closest: () => ({ dataset: { [attribute]: value } }) },
+    });
+  };
+
+  assert.ok(elements.get('#schedule-medium-filters').innerHTML.includes('Screen (Digital)'));
+  assert.ok(elements.get('#schedule-medium-filters').innerHTML.includes('Tabletop (Non-Digital)'));
+  assert.ok(!elements.get('#schedule-medium-filters').innerHTML.includes('Tabletop & Live Play'));
+  assert.ok(!elements.get('#schedule-medium-filters').innerHTML.includes('Multiple Kinds'));
+  assert.ok(!elements.get('#schedule-medium-filters').innerHTML.includes('Other'));
+  assert.ok(cards().includes('Tabletop student'));
+  assert.ok(cards().includes('Tabletop &amp; Live Play (Non-Digital)'));
+  assert.ok(cards().includes('Hybrid public'));
+  assert.ok(cards().includes('<strong>All</strong>'));
+  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.ok(cards().includes('Digital public'));
+  assert.ok(cards().includes('Digital student'));
+  assert.ok(!cards().includes('Tabletop student'));
+  assert.ok(cards().includes('Hybrid public'));
+  assert.ok(cards().includes('Hybrid student'));
+  assert.ok(cards().includes('All student'));
+  assert.ok(!cards().includes('Other public'));
+
+  click('#schedule-filters', 'audience', 'learners');
+  assert.ok(!cards().includes('Digital public'));
+  assert.ok(cards().includes('Digital student'));
+  assert.ok(cards().includes('Hybrid student'));
+  assert.ok(cards().includes('All student'));
+  click('#schedule-medium-filters', 'gameMedium', 'tabletop');
+  assert.ok(cards().includes('Digital student'));
+  assert.ok(cards().includes('Tabletop student'));
+  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.ok(!cards().includes('Digital student'));
+  assert.ok(cards().includes('Tabletop student'));
+  assert.ok(cards().includes('Hybrid student'));
+  assert.ok(cards().includes('All student'));
+  click('#schedule-medium-filters', 'gameMedium', '');
+  assert.ok(cards().includes('Digital student'));
+  assert.ok(cards().includes('Tabletop student'));
+  assert.ok(!cards().includes('Hybrid public'));
+});
+
+test('mixed legacy game types appear under both medium filters', async () => {
+  const elements = await loadSchedule(
+    ['Fallback hybrid,2026-10-12,Y,"PC video games, Board Games"'],
+    '',
+    'Event Name,Specific Date,Published,Type of Games'
+  );
+  const cards = () => elements.get('#schedule-cards').innerHTML;
+  const filter = elements.get('#schedule-medium-filters');
+  assert.ok(cards().includes('<strong>All</strong>'));
+  for (const medium of ['digital', 'tabletop']) {
+    filter.listeners.click({
+      target: { closest: () => ({ dataset: { gameMedium: medium } }) },
+    });
+    assert.ok(cards().includes('Fallback hybrid'));
+  }
+});
 
 test('shows each day’s published event count in the overview', async () => {
   const elements = await loadSchedule([

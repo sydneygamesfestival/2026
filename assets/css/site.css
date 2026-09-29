@@ -605,11 +605,23 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   line-height: 1;
 }
 
+.schedule-filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px 18px;
+  margin-bottom: 22px;
+}
+
 .schedule-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 22px;
+}
+
+#schedule-medium-filters {
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .schedule-filter {
@@ -629,6 +641,18 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 .schedule-filter.active {
   color: white;
   background: var(--coral);
+}
+
+#schedule-medium-filters .schedule-filter {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+#schedule-medium-filters .schedule-filter:hover,
+#schedule-medium-filters .schedule-filter:focus-visible,
+#schedule-medium-filters .schedule-filter.active {
+  color: white;
+  background: var(--blue);
 }
 
 .schedule-cards {

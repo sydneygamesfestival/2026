@@ -28,6 +28,11 @@
     { key: 'learners', label: 'Learners' },
   ];
 
+  const gameMediumOptions = [
+    { key: 'digital', label: 'Screen (Digital)', kind: 'Screen (Digital)' },
+    { key: 'tabletop', label: 'Tabletop (Non-Digital)', kind: 'Tabletop & Live Play (Non-Digital)' },
+  ];
+
   const audienceMap = {
     'general public': 'players',
     'beginner players': 'players',
@@ -47,6 +52,7 @@
     dayHeader: schedule.querySelector('#schedule-day-header'),
     dayTitle: schedule.querySelector('#schedule-day-title'),
     filters: schedule.querySelector('#schedule-filters'),
+    mediumFilters: schedule.querySelector('#schedule-medium-filters'),
     cards: schedule.querySelector('#schedule-cards'),
   };
 
@@ -54,6 +60,7 @@
     events: [],
     selectedDay: null,
     audiences: new Set(),
+    gameMedia: new Set(),
     preview: { sample: false, draft: false },
   };
   const preloadedImages = new Map();
@@ -126,15 +133,15 @@
   function gameKindFromMedium(value) {
     const media = splitList(value);
     if (!media.length) return '';
-    if (media.length > 1) return 'Multiple Kinds';
+    if (media.length > 1) return 'All';
 
     const medium = normalise(media[0]);
-    if (medium.includes('hybrid') || medium.includes('multiple')) return 'Multiple Kinds';
-    if (medium.includes('digital') || medium.includes('screen')) return 'Screen (Digital)';
-    if (medium.includes('tabletop') || medium.includes('live play') ||
+    if (medium === 'all' || medium.includes('hybrid') || medium.includes('multiple')) return 'All';
+    if (medium.includes('non digital') || medium.includes('tabletop') || medium.includes('live play') ||
         medium.includes('parlour') || medium.includes('larp')) {
       return 'Tabletop & Live Play (Non-Digital)';
     }
+    if (medium.includes('digital') || medium.includes('screen')) return 'Screen (Digital)';
     return 'Other';
   }
 
@@ -147,7 +154,7 @@
     const types = normalise(detailedTypes.join(' '));
     const hasDigital = /\b(pc|mobile|console|arcade|digital|video|vr|ar)\b/.test(types);
     const hasTabletop = /\b(board|card|tcg|tabletop|rpg|megagame|miniature|war game|larp|cosplay|parlour)\b/.test(types);
-    if (hasDigital && hasTabletop) return 'Multiple Kinds';
+    if (hasDigital && hasTabletop) return 'All';
     if (hasDigital) return 'Screen (Digital)';
     if (hasTabletop) return 'Tabletop & Live Play (Non-Digital)';
     return 'Other';
@@ -472,6 +479,13 @@
     return Array.from(state.audiences).some(function (audience) { return buckets.has(audience); });
   }
 
+  function passesGameMediumFilter(event) {
+    if (!state.gameMedia.size || event.gameKind === 'All') return true;
+    return gameMediumOptions.some(function (option) {
+      return state.gameMedia.has(option.key) && event.gameKind === option.kind;
+    });
+  }
+
   function formatTime(minutes) {
     let hour = Math.floor(minutes / 60);
     const minute = minutes % 60;
@@ -622,7 +636,7 @@
 
   function emptyHtml(hasEventsForDay) {
     const message = hasEventsForDay
-      ? 'No events match those audience filters for this date.'
+      ? 'No events match those filters for this date.'
       : 'No events have been announced for this date yet.';
     return '<div class="schedule-empty"><p>' + message + '</p>' +
       '<a class="button" href="' + escapeHtml(schedule.dataset.notifyUrl) + '">Get program updates</a></div>';
@@ -655,6 +669,17 @@
         option.key + '" aria-pressed="' + active + '">' + option.label + '</button>';
     }).join('');
     elements.filters.innerHTML = allButton + buttons;
+
+    const allMediaActive = state.gameMedia.size === 0;
+    const allMediaButton = '<button class="schedule-filter' + (allMediaActive ? ' active' : '') +
+      '" type="button" data-game-medium="" aria-pressed="' + allMediaActive + '">All</button>';
+    const mediumButtons = gameMediumOptions.map(function (option) {
+      const active = state.gameMedia.has(option.key);
+      return '<button class="schedule-filter' + (active ? ' active' : '') +
+        '" type="button" data-game-medium="' + option.key + '" aria-pressed="' + active +
+        '">' + escapeHtml(option.label) + '</button>';
+    }).join('');
+    elements.mediumFilters.innerHTML = allMediaButton + mediumButtons;
   }
 
   function render() {
@@ -664,6 +689,7 @@
     const dayEvents = eventsForDay(state.selectedDay);
     const visibleEvents = dayEvents
       .filter(passesAudienceFilter)
+      .filter(passesGameMediumFilter)
       .sort(compareEvents);
     const selectedScope = scopes().find(function (scope) { return scope.key === state.selectedDay; });
 
@@ -721,6 +747,21 @@
       state.audiences.delete(audience);
     } else {
       state.audiences.add(audience);
+    }
+    render();
+  });
+
+  elements.mediumFilters.addEventListener('click', function (event) {
+    const button = event.target.closest('[data-game-medium]');
+    if (!button) return;
+
+    const medium = button.dataset.gameMedium;
+    if (!medium) {
+      state.gameMedia.clear();
+    } else if (state.gameMedia.has(medium)) {
+      state.gameMedia.delete(medium);
+    } else {
+      state.gameMedia.add(medium);
     }
     render();
   });

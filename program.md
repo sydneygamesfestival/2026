@@ -128,7 +128,10 @@ program_schedule: true
             <h3 id="schedule-day-title"></h3>
           </div>
 
-          <div class="schedule-filters" id="schedule-filters" aria-label="Filter by audience"></div>
+          <div class="schedule-filter-groups">
+            <div class="schedule-filters" id="schedule-filters" role="group" aria-label="Filter by audience"></div>
+            <div class="schedule-filters" id="schedule-medium-filters" role="group" aria-label="Filter by game medium"></div>
+          </div>
           <div class="schedule-cards" id="schedule-cards" aria-live="polite"></div>
         </div>
       </div>
