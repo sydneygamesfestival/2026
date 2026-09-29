@@ -16,6 +16,11 @@ test('overview days and featured events link to detailed program dates', () => {
     assert.ok(programPage.includes(
       'class="program-week-mobile-day" href="#program-' + iso + '"'
     ));
+    const cell = programPage.split('\n').find((line) =>
+      line.includes('<td data-date=') && line.includes('data-schedule-date="' + iso + '"'));
+    const count = '<span class="program-week-count" data-schedule-count="' + iso + '" hidden></span>';
+    assert.equal(cell.split(count).length - 1, 2);
+    assert.ok(cell.includes('</a>' + count + '</td>'));
 
     assert.match(
       programPage,

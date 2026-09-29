@@ -447,6 +447,11 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
 
 .program-week-count[hidden] { display: none; }
 
+.program-week td > .program-week-count:not([hidden]) {
+  display: block;
+  font-size: 1rem;
+}
+
 .program-week td {
   height: 145px;
   padding: 10px;
@@ -466,7 +471,7 @@ h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 1.03; }
   font-size: 0.72rem;
   line-height: 1.15;
   hyphens: auto;
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -1769,6 +1774,8 @@ summary { cursor: pointer; font-weight: 700; }
   }
 
   .program-week-mobile-day .program-week-count { margin-top: 3px; }
+
+  .program-week td > .program-week-count:not([hidden]) { display: none; }
 
   .program-week td:nth-child(3n + 2) .program-week-mobile-day { background: var(--coral); }
   .program-week td:nth-child(3n) .program-week-mobile-day { background: var(--orange); }
