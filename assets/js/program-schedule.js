@@ -59,8 +59,8 @@
   const state = {
     events: [],
     selectedDay: null,
-    audiences: new Set(),
-    gameMedia: new Set(),
+    audience: '',
+    gameMedium: '',
     preview: { sample: false, draft: false },
   };
   const preloadedImages = new Map();
@@ -482,15 +482,14 @@
   }
 
   function passesAudienceFilter(event) {
-    if (!state.audiences.size) return true;
-    const buckets = audienceBuckets(event);
-    return Array.from(state.audiences).some(function (audience) { return buckets.has(audience); });
+    if (!state.audience) return true;
+    return audienceBuckets(event).has(state.audience);
   }
 
   function passesGameMediumFilter(event) {
-    if (!state.gameMedia.size || event.gameKind === 'All') return true;
+    if (!state.gameMedium || event.gameKind === 'All') return true;
     return gameMediumOptions.some(function (option) {
-      return state.gameMedia.has(option.key) && event.gameKind === option.kind;
+      return state.gameMedium === option.key && event.gameKind === option.kind;
     });
   }
 
@@ -673,21 +672,21 @@
   }
 
   function renderFilters() {
-    const allActive = state.audiences.size === 0;
+    const allActive = !state.audience;
     const allButton = '<button class="schedule-filter' + (allActive ? ' active' : '') +
       '" type="button" data-audience="" aria-pressed="' + allActive + '">All</button>';
     const buttons = audienceOptions.map(function (option) {
-      const active = state.audiences.has(option.key);
+      const active = state.audience === option.key;
       return '<button class="schedule-filter' + (active ? ' active' : '') + '" type="button" data-audience="' +
         option.key + '" aria-pressed="' + active + '">' + option.label + '</button>';
     }).join('');
     elements.filters.innerHTML = allButton + buttons;
 
-    const allMediaActive = state.gameMedia.size === 0;
+    const allMediaActive = !state.gameMedium;
     const allMediaButton = '<button class="schedule-filter' + (allMediaActive ? ' active' : '') +
       '" type="button" data-game-medium="" aria-pressed="' + allMediaActive + '">All</button>';
     const mediumButtons = gameMediumOptions.map(function (option) {
-      const active = state.gameMedia.has(option.key);
+      const active = state.gameMedium === option.key;
       return '<button class="schedule-filter' + (active ? ' active' : '') +
         '" type="button" data-game-medium="' + option.key + '" aria-pressed="' + active +
         '">' + escapeHtml(option.label) + '</button>';
@@ -754,13 +753,7 @@
     if (!button) return;
 
     const audience = button.dataset.audience;
-    if (!audience) {
-      state.audiences.clear();
-    } else if (state.audiences.has(audience)) {
-      state.audiences.delete(audience);
-    } else {
-      state.audiences.add(audience);
-    }
+    state.audience = state.audience === audience ? '' : audience;
     render();
   });
 
@@ -769,13 +762,7 @@
     if (!button) return;
 
     const medium = button.dataset.gameMedium;
-    if (!medium) {
-      state.gameMedia.clear();
-    } else if (state.gameMedia.has(medium)) {
-      state.gameMedia.delete(medium);
-    } else {
-      state.gameMedia.add(medium);
-    }
+    state.gameMedium = state.gameMedium === medium ? '' : medium;
     render();
   });
 

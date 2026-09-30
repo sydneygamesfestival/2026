@@ -93,6 +93,11 @@ test('game medium and audience filters work together', async () => {
       target: { closest: () => ({ dataset: { [attribute]: value } }) },
     });
   };
+  const selected = (selector, attribute) => {
+    const html = elements.get(selector).innerHTML;
+    assert.equal((html.match(/aria-pressed="true"/g) || []).length, 1);
+    return html.match(new RegExp('data-' + attribute + '="([^"]*)" aria-pressed="true"'))[1];
+  };
 
   assert.ok(elements.get('#schedule-medium-filters').innerHTML.includes('Screen (Digital)'));
   assert.ok(elements.get('#schedule-medium-filters').innerHTML.includes('Tabletop (Non-Digital)'));
@@ -104,6 +109,7 @@ test('game medium and audience filters work together', async () => {
   assert.ok(cards().includes('Hybrid public'));
   assert.ok(cards().includes('<strong>All</strong>'));
   click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.equal(selected('#schedule-medium-filters', 'game-medium'), 'digital');
   assert.ok(cards().includes('Digital public'));
   assert.ok(cards().includes('Digital student'));
   assert.ok(!cards().includes('Tabletop student'));
@@ -113,19 +119,33 @@ test('game medium and audience filters work together', async () => {
   assert.ok(!cards().includes('Other public'));
 
   click('#schedule-filters', 'audience', 'learners');
+  assert.equal(selected('#schedule-filters', 'audience'), 'learners');
   assert.ok(!cards().includes('Digital public'));
   assert.ok(cards().includes('Digital student'));
   assert.ok(cards().includes('Hybrid student'));
   assert.ok(cards().includes('All student'));
   click('#schedule-medium-filters', 'gameMedium', 'tabletop');
-  assert.ok(cards().includes('Digital student'));
-  assert.ok(cards().includes('Tabletop student'));
-  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.equal(selected('#schedule-medium-filters', 'game-medium'), 'tabletop');
   assert.ok(!cards().includes('Digital student'));
   assert.ok(cards().includes('Tabletop student'));
+  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.equal(selected('#schedule-medium-filters', 'game-medium'), 'digital');
+  assert.ok(cards().includes('Digital student'));
+  assert.ok(!cards().includes('Tabletop student'));
   assert.ok(cards().includes('Hybrid student'));
   assert.ok(cards().includes('All student'));
+  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  assert.equal(selected('#schedule-medium-filters', 'game-medium'), '');
+  click('#schedule-medium-filters', 'gameMedium', 'digital');
+  click('#schedule-filters', 'audience', 'players');
+  assert.equal(selected('#schedule-filters', 'audience'), 'players');
+  assert.ok(cards().includes('Digital public'));
+  assert.ok(!cards().includes('Digital student'));
+  click('#schedule-filters', 'audience', 'players');
+  assert.equal(selected('#schedule-filters', 'audience'), '');
+  click('#schedule-filters', 'audience', 'learners');
   click('#schedule-medium-filters', 'gameMedium', '');
+  assert.equal(selected('#schedule-medium-filters', 'game-medium'), '');
   assert.ok(cards().includes('Digital student'));
   assert.ok(cards().includes('Tabletop student'));
   assert.ok(!cards().includes('Hybrid public'));
