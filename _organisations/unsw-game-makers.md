@@ -10,7 +10,7 @@ people:
     url: #
 groups:
   - events
-logo: /assets/images/organisations/unsw-game-makers.jpg
+logo: /assets/images/organisations/unsw-game-makers.png
 website: https://www.unswgmsoc.org/
 link_label: Visit UNSW Game Makers
 summary: A student community learning, making and sharing games.
